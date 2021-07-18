@@ -1,0 +1,81 @@
+\chapter{Introduction}\label{chap:intro}
+\begin{quote}
+[Gig economy,] the collection of markets that match providers to consumers on a [job] basis in support of on-demand commerce. [\dots] Prospective clients request services through an Internet-based technological platform or smartphone application that allows them to search for providers or to specify jobs. Providers (gig workers) engaged by the on-demand company provide the requested service and are compensated for the jobs. -- Congressional Information Service, \tocite
+\end{quote}
+\section{Information Design for Platform Drivers}
+This thesis studies the relevance of demand information to platform drivers and how it should be designed.
+
+By platform drivers we mean all food or grocery delivery drivers and ridesourcing drivers. While formally offering distinct services, in many urban spaces, platforms offering ridesourcing, so-called Transportation Network Companies (TNCs), also offer delivery of food or groceries. Examples of TNCs---which all offer also delivery services---are Grab and Gojek in Southeast Asian countries, Didi Yuching in China and several South American countries, as well as Uber in a large part of the world.
+
+The Congressional Information Service's definition of gig work highlights the opportunity of search for consumers. However, it does not mention search, or any form of information acquisition by gig workers.
+
+In most of gig work, and in particular in driving for platforms, gig workers need to make important decisions which require information or expectation on the demand for rides or deliveries: When to work, where to work, and for how long to work. Not only do these decisions have an impact on driver earning, but also on TNC operations.
+
+Information that could affect decisions of gig workers to supply or not supply their labor often takes the form of demand information. For example, information on an area or a time period of high demand for rides can affect drivers' earnings.
+
+This information becomes particularly crucial as platform drivers usually do not set prices for their services.
+
+
+While information provision to platform driver influences decision-making of drivers, information provision becomes also important for other parts of the gig economy. For example, knowledge of demand and expectations have been demonstrated in the market for freelance software development \tocite when the market environment changed, or in investments into AirBnB housing \tocite.
+
+This thesis focuses on the design of information to drivers. It highlights that merely considering \emph{pricing}, i.e. the setting of prices to consumers and gig workers, might be beneficially complemented by considering \emph{information provision}, both for TNC operations, a market for third-party information providers and regulation.
+
+After positioning platform drivers in the spheres of urban transportation and the gig economy in the rest of this chapter, and reviewing important dimensions of platform design which interact with information design and information provision through third parties in \autoref{chap:literature}, we make three contributions.
+
+The first part of our study, \autoref{chap:jakarta} investigates which other factors besides expected earnings affect driver labor supply decisions. In a large survey of platform drivers in Jakarta, Indonesia, we find significant inconsistencies with earnings maximization of drivers in terms of reported earnings, and find cultural, as well as informational aspects in drivers' labor supply decisions. We also find that drivers often do not reposition themselves, but follow the algorithm whenever possible. 
+
+We supplement our observations on the relevance of non-pricing TNC design questions in \autoref{chap:chengdu} using earnings differences in platform-provided data. We provide an approximate value of demand knowledge using earnings differences under optimal \emph{repositioning}, i.e. movement of idle drivers to other areas in the city. We make this estimate by inferring real earnings for platform driver trips undertaken for TNC DiDi Yuching in November 2016 in Chengdu, China and comparing the earnings differences to average earnings of delivery drivers on the platform. We find that optimal repositioning, which can be seen as a very strong form of knowledge of demand, can lead to significant (at least two-fold) increase in earnings if a small group of drivers is perfectly informed about demand.
+
+Third, we take first steps into the design of information for platform drivers in \autoref{chap:info}. In a benchmark model we formalize properties of the informational environment. We first show that never providing the same demand information to all drivers is welfare-maximizing. We show that in our model, an informational Braess' paradox arises, which is distinct from existing notions of an informational Braess' paradox.\footnote{Manxi Wu studies this in road networks; Manish Raghavan studies it for several classification technologies \tocite.} We expose that platform drivers might ignore information presented to them by the platform as a result of limited commitment of a TNC which does not allow them to credibly commit to not maximize their revenue with a choice of information. We show that third-party information aggregators can remedy this inefficiency, as can a change in the payment structure of gig drivers, and that aggregators can do so even with information provided to all subscribed drivers, as long as these are a small proportion of all drivers.
+
+The final \autoref{chap:policy} collects policy recommendations both for TNC operators and regulators. We first show that information design is of different significance for TNC operators and regulators. While the former will need to rely on third-party aggregators to commit to disclosing information in a way that drivers will not ignore, and are in this endeavour aligned with drivers, the latter should think more carefully about equity in the proposed models: Information needs to be provided asymmetrically. While asymmetrically, it still needs to require that drivers are equally treated. We conclude with engineering challenges arising from our observations.
+
+While we provide several facets of information design for platform drivers, we largely abstract both pricing (who pays what) and matching (which driver gets to serve which rider) decisions and competition concerns away. Real-world platforms solve joint optimization problems of pricing and information in competition with other platforms. While this means that all of our analysis needs to be seen as having a narrow view of the design possibilities of platforms, we highlight, on the contrary, that viewing platform design purely as a \emph{pricing} question might fall short of optimal mobility platform design.
+
+Our analysis can also only be seen as mid-term, as information design to Autonomous Vehicles will depend on whether all vehicles are centrally controlled and cooperative or not. Throughout this thesis, we maintain that platform drivers are human.
+\section{Background}
+Platform drivers take an increasing role in urban mobility (\autoref{subsec:pdandurbanmobility}), and have special characteristics compared to other forms of gig work (\autoref{subsec:pdandgigwork}). Some of these characteristics have led to more prominent regulatory interventions into platform driving (\autoref{subsec:pdregulation}). Regulators have for the biggest part not intervened into information provision to drivers, which puts drivers into a status quo of an information environment given by their TNC apps and third parties aggregating information (\autoref{subsec:pdinfo}).
+\subsection{Platform Drivers and Urban Mobility}\label{subsec:pdandurbanmobility}
+As of 2021, services provided by platform drivers now make up $\nicefrac{1}{3}$ of the global taxi market \tocite. With the rise of the first transportation network companies about 15 years ago, the rapid changes leaves many of the design dimensions of this market open.
+
+An important difference to other travel modes such as public transit is the need for dynamic rebalancing, i.e. ensuring a distribution of drivers such that in each part of the urban area expected ride demand can be met at each point in time. While dynamic rebalancing is also an important question in public transit operations, schedules can be designed with much less uncertainty.
+
+Part of the uncertainty making dynamic rebalancing hard comes from the need to design incentives that ensure participation. Even with accurate demand models for riders, platform drivers usually have the opportunity to log off their platform or reject (some of) the rides requested by a customer. If they are not incentivized to continue working on the platform, they will not.
+
+Incentive designs for a supply side of mobility have historically been less prominent in transportation research \tocite. This opens an opportunity for the introduction of tools used in competitive supply of labor.
+
+\subsection{Platform Drivers as Gig Workers}\label{subsec:pdandgigwork}
+Platform drivers are also gig workers \emph{qua} the definition introducing this chapter. Riders search on the platform and are matched to a driver for their ride or delivery. Nevertheless, platform drivers are extreme in some of their characteristics.
+
+First, platform driving is, compared to other parts of the gig economy very flexible. This characteristic comes from the nature of gigs being short. Compared to other parts of the gig economy, e.g. lodging (e.g., on AirBnB, gigs usually at least one day), and services for care (e.g., care.com), technology (e.g., Andela), design (e.g., 99designs) and home services (e.g., Porch), typically require scheduling or completion within at least a day. This makes management of incentives compared to drivers
+
+
+Second, the terms of the contract are fully determined by the platform. This is in contrast to other platforms such as in lodging, technology and design, where gig workers can set their own prices.
+
+Third, reaching out to customers outside of the platform is much more challenging for platform drivers than for other gig workers. Compared to other gig work, giving a ride on the platform is short, and as both the complete contract and all payments are processed by the platform, it is hard for drivers to build gigs independently of the platform. This gives the platform additional bargaining power in negotiations with the driver.
+
+Fourth, many of the drivers are full-time and work many hours a day. This both raises concerns over work safety, but also over wage bounds, some of which have been introduced as regulations.
+
+\subsection{Regulation of Platform Driver Work}\label{subsec:pdregulation}
+Flexibility, limitations on contracting and communication, and the ubiquity non-wage controlled, full-time work led to policy interventions regarding minimum wages and the employment status of platform drivers.
+
+The New York City Transport and Limousine Commission introduced an earnings standard which guaranteed a \emph{proxy} minimum wage for ridesourcing drivers in New York City \tocite. Drivers earn for rides an additional amount to increase the average as calibrated against historical demand data to the minimum wage level.
+
+In 2020, California accepted via a referendum a special provision for ridesourcing drivers to be excluded from legal sufficient conditions for an employment relationship.
+
+In contrast, the UK Supreme Court decided that ridesourcing drivers \emph{are} employees of TNCs, with labor implications for drivers, with effects for payment and insurance of dirvers.
+
+These regulations do not include provisions on the information that drivers get from TNCs, and other actors work in this sphere.
+
+\subsection{Platform Drivers' Payment and Information Environment}\label{subsec:pdinfo}
+Most platforms drivers face an app on a smartphone, which offers them potential gigs, which they can accept or reject. At each point in time, drivers can select to log off the system, which drivers report to use strategically \tocite. In the U.S. \tocite and in our survey conducted in Jakarta (\autoref{chap:jakarta}), we find that a minority of drivers has several apps open at the same time. Hence, drivers are limited in their ability to observe demand on the other platforms.
+
+This interacts also with payment design of platforms. Many platforms associate bonuses with the acceptance of rides, or punishments up to being blocked on the platform for not accepting ride requests. This makes being online in different platforms complicated for many drivers.
+
+An important distinction will be three time periods, which we call, in accordance with nomenclature introduced by Uber \tocite \emph{phases 1, 2, and 3}.
+
+Phase 1 corresponds to times where the driver is online but idle. In these times, the driver is not sent ride requests and does (except for bonus payments for repositioning) not earn money.
+
+Phases 2 and 3 refer to the time between the acceptance of a ride request and the pickup of the passenger, and the ride, respectively. In these phases, riders are paid.
+
+The goal of this thesis is to establish the relevance of providing drivers with demand information, and will only significantly affect driver behavior in phase 1. Drivers that are picking up or driving a rider have a clear task, and even a contract for their work. The main question we ask in our theoretical section will be when the platform can transmit any information that will not be ignored.

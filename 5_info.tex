@@ -1,0 +1,61 @@
+\chapter{Information Design}\label{chap:infodesign}
+\begin{quote}
+	The information design problem has
+a literal interpretation: there
+really is an information designer (or mediator, or sender) who can commit to provide extra information to players to serve her own
+interests. While the commitment assumption may be problematic in many settings, it provides a useful benchmark.---\tocite (Bergemann-Morris)
+\end{quote}
+In this section, we propose an information design model to highlight some incentives regarding ridesourcing. We will assume a monopolistic platform, and an uncertain demand function, as well as a mass of drivers. 
+\section{Model}
+We study a very stylized model with two players, one area. Agents can decide to either drive into this area or not. The game that agents play is given by
+
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+\matrix[matrix of math nodes,every odd row/.style={align=right},every even row/.style={align=left},every node/.style={text width=1.5cm},row sep=0.2cm,column sep=0.2cm] (m) {
+$\frac12$&$0$\\
+$\frac12$&$1$\\
+1&0\\
+0&0\\
+};
+\draw (m.north east) rectangle (m.south west);
+\draw (m.north) -- (m.south);
+\draw (m.east) -- (m.west);
+\coordinate (a) at ($(m.north west)!0.25!(m.north east)$);
+\coordinate (b) at ($(m.north west)!0.75!(m.north east)$);
+\node[above=5pt of a,anchor=base] {go};
+\node[above=5pt of b,anchor=base] {not go};
+
+\coordinate (c) at ($(m.north west)!0.25!(m.south west)$);
+\coordinate (d) at ($(m.north west)!0.75!(m.south west)$);
+\node[left=2pt of c,text width=1cm]  {go};
+\node[left=2pt of d,text width=1cm]  {not go};
+
+\node[above=18pt of m.north] (firm b) {Driver 2};
+\node[left=1.6cm of m.west,rotate=90,align=center,anchor=center] {Driver 1};
+\end{tikzpicture}
+\caption{Payoff Matrix for the two-driver game.}\label{fig:twodrivers}
+\end{figure}
+
+We assume two ways in which the platform can communicate the information to the drivers.
+\subsection{Cheap Talk}
+In cheap talk, the platform discloses some information to a driver, which, given the update, updates their behavior. More concretely, there is an abstract set of \emph{messages} $m \in \mathcal M$ that the platform can send. The players receive the message and play optimally. In particular, the timeline of the game is:
+\begin{enumerate}
+	\item The demand at the area is realized.
+	\item The platform decides to send a message to the drivers.
+	\item The drivers decide to drive to the area or not.
+\end{enumerate}
+\subsection{Information Design}
+In information design, the drivers can commit to a driver 
+\subsection{Public and Private Messages}
+\section{Inefficiencies}
+In this environment, two sources of in
+\subsection{Inefficiencies through lack of commitment}
+\subsection{Inefficiencies through public information}
+
+\section{Remedies}
+\subsection{Commitment via third parties}
+\subsection{Commitment via reputation}
+\subsection{Approximate Efficiency of Public Information to Few Drivers}
+

@@ -1,0 +1,70 @@
+\chapter{The Value of Information}\label{chap:chengdu}
+After our investigation into potential multi-homing frictions in a market, we give evidence here on the value of information to drivers. This is aligned with claims by companies that offer information services to drivers \tocite.
+
+\section{Description of Data}
+The DiDi KDD Challenge 2020, sponsored by DiDi Yuching, consisted of two challenge. An order dispatch challenge, and a driver repositioning challenge. We will work with data and submissions of the latter. 
+
+In the repositioning challenge, a policy that depends purely on 
+\subsection{Annotated Order Data}
+
+\subsection{Reinforcement Learning Challenge Leaderboard}
+
+\subsection{Earnings Table}
+
+\section{Estimation}
+\subsection{Model}
+We assume that there is a constant $c$ such that 
+\[
+\operatorname{reward units} = c \operatorname{RMB}.
+\]
+The reason for this lies in the following proposition.
+
+\subsection{Regression}
+
+
+
+
+
+
+\begin{table}
+\centering
+\begin{tabular}{lclc}
+\toprule
+\textbf{Dep. Variable:}    &  reward\_units   & \textbf{  R-squared:         } &     0.887   \\
+\textbf{Model:}            &       OLS        & \textbf{  Adj. R-squared:    } &     0.887   \\
+\textbf{Method:}           &  Least Squares   & \textbf{  F-statistic:       } &     1380.   \\
+\textbf{Date:}             & Sun, 18 Jul 2021 & \textbf{  Prob (F-statistic):} &     0.00    \\
+\textbf{Time:}             &     14:45:52     & \textbf{  Log-Likelihood:    } &   -2998.9   \\
+\textbf{No. Observations:} &        2000      & \textbf{  AIC:               } &     6004.   \\
+\textbf{Df Residuals:}     &        1997      & \textbf{  BIC:               } &     6021.   \\
+\textbf{Df Model:}         &           2      & \textbf{                     } &             \\
+\bottomrule
+\end{tabular}
+\begin{tabular}{lcccccc}
+                   & \textbf{coef} & \textbf{std err} & \textbf{z} & \textbf{P$> |$z$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+\midrule
+\textbf{Intercept} &      -0.1664  &        0.077     &    -2.155  &         0.031        &       -0.318    &       -0.015     \\
+\textbf{distance}  &       0.3191  &        0.021     &    15.449  &         0.000        &        0.279    &        0.360     \\
+\textbf{duration}  &       0.0635  &        0.007     &     9.645  &         0.000        &        0.051    &        0.076     \\
+\bottomrule
+\end{tabular}
+\end{table}
+\subsection{Checks}
+
+\begin{table}
+\centering
+\begin{tabular}{lcccccc}
+                                     & \textbf{coef} & \textbf{std err} & \textbf{z} & \textbf{P$> |$z$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+\midrule
+\textbf{Intercept}                   &      -0.2569  &        0.262     &    -0.981  &         0.326        &       -0.770    &        0.256     \\
+\textbf{rush\_hour[T.True]}          &       0.0095  &        0.320     &     0.030  &         0.976        &       -0.618    &        0.637     \\
+\textbf{distance}                    &       0.3318  &        0.047     &     7.113  &         0.000        &        0.240    &        0.423     \\
+\textbf{rush\_hour[T.True]:distance} &      -0.0292  &        0.048     &    -0.602  &         0.547        &       -0.124    &        0.066     \\
+\textbf{duration}                    &       0.0653  &        0.011     &     6.170  &         0.000        &        0.045    &        0.086     \\
+\textbf{rush\_hour[T.True]:duration} &       0.0028  &        0.014     &     0.200  &         0.841        &       -0.024    &        0.030     \\
+\bottomrule
+\end{tabular}
+%\caption{OLS Regression Results}
+\end{table}
+
+\section{Discussion}

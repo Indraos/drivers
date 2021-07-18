@@ -1,0 +1,68 @@
+\documentclass[12pt,twoside]{Z_mitthesis}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,matrix}
+\usepackage{makecell}
+\usepackage{nicefrac}
+\usepackage{sgame}
+\usepackage{csquotes}
+\newcommand{\tocite}{TOCITE}
+\usepackage{hyperref}
+\usepackage[backend=biber]{biblatex}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\graphicspath {{/Users/andreashaupt/Downloads/X_MasterThesis/Figures/}}
+\bibliography{/Users/andreashaupt/Documents/Writing/Bibliography/library}
+
+
+\usepackage{Z_lgrind}
+\usepackage{cmap}
+\usepackage[T1]{fontenc}
+\pagestyle{plain}
+\begin{document}
+\title{Information Design for Platform Drivers}
+\author{Andreas Haupt}
+\prevdegrees{B.Sc., University of Bonn (2014) \\
+M.Sc., University of Bonn (2017, 2018)\\
+B.Sc., University of Frankfurt (2019)}
+\department{Institute for Data, Systems, and Society}
+\degree{Master of Science in Social and Engineering Systems}
+\degreemonth{September}
+\degreeyear{2021}
+\thesisdate{August 7, 2021}
+\supervisor{Jinhua Zhao}{Associate Professor}
+\chairman{Fotini Christia}{Program Head, Social and Engineering Systems}
+\maketitle
+\cleardoublepage
+\setcounter{savepage}{\thepage}
+\begin{abstractpage}
+With the rise of app-based matching platforms, gig workers become important suppliers of labor to transportation and food delivery. An important dimension in the management of this labor supply are pricing decisions by platforms. This thesis makes a case for the importance of another dimension of platform design for platform drivers: Demand information given to drivers. Using a large-scale survey and platform-provided data, we give evidence for the relevance of demand information for drivers' labor supply decisions. We then start our investigation into how information should be designed, and derive policy recommendations for platforms and their regulators.
+\end{abstractpage}
+\cleardoublepage
+\section*{Acknowledgments}
+I thank my family (Helga and Katrin Haupt), my roommates (Isabell, Juan-Pablo, Sophia, Salome, Bernardo) and friends and mentors (Christina, Marieke, Richard) for the emotional support I needed in this time. I thank Stephen Zoepf (Lacuna.ai, Stanford University), Ryan Green (Gridwise), Dan Calacci (MIT Human Dynamics), Xiaotong Guo (MIT Joint Transportation Lab), and Hai Wang (Singapore Management University) for helpful conversations. I thank my reader John Horton (MIT Sloan) for his open feedback. Finally, I thank my supervisor Jinhua Zhao for his visions, and for being such a kind lab leader.
+\pagestyle{plain}
+\tableofcontents
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\input{1_intro}
+\input{2_literature}
+\input{3_jakarta}
+\input{4_chengdu}
+\input{5_info}
+\input{6_policy}
+\appendix
+\input{X1_survey}
+\input{X2_kdd}
+\input{X3_omitted}
+\input{X_tables}
+\input{X_figures}
+\begin{singlespace}
+\printbibliography
+\end{singlespace}
+\end{document}
