@@ -3,20 +3,24 @@
 	The information design problem has
 a literal interpretation: there
 really is an information designer (or mediator, or sender) who can commit to provide extra information to players to serve her own
-interests. While the commitment assumption may be problematic in many settings, it provides a useful benchmark.--\cite
+interests. While the commitment assumption may be problematic in many settings, it provides a useful benchmark.--\tocite
 \end{quote}
-In this section, we study pure information design for platform drivers. We refer to it as \emph{pure} as we abstract from its interaction with pay. 
+In this section, we study pure information design for platform drivers. We refer to it as \emph{pure} as we study information provision while keeping the pay to drivers fixed. Part of our conclusions in this section are that for sufficiently high non-internalized costs from the platform, pure information design will lead to no information transmission to drivers in equilibrium.
 \section{Model}
-In our stylized model, two agents simultaneously decide to drive to a part of a city or to do something else. Before each of the drivers makes her decision on whether to drive, the system can give them a message $m$ on whether there is demand on the platform.
+In our stylized model, two agents simultaneously decide to drive to a part of a city or to do something else. The platform observes, or has a better estimate on the demand state $\theta \in \{0,1\}$. Before each of the drivers makes her decision on whether to drive, the system can send a message $m_1$ to driver $1$ and $m_2$ to driver $2$ on whether there is demand on the platform. Drivers get utility $1$ if they get an order, and incur a cost of driving to the location of $\varepsilon$. This gives a game table in \autoref{fig:twodrivers}. 
+
+The platform gets utility of $1$ if at least one of the drivers gets to the desired location, and $0$ utility otherwise. The divergence of platform and driver utility stems from the payment structure for drivers, as we described in the introduction: Drivers only get paid for phase 2, when they are matched to a ride.
+
+The platform can send messages to drivers. The platform can either send a message to drivers without committing to any particular form of information revelation (\autoref{subsec:infodesign}) such as \enquote{I recommend you to go to this place, and I will not recommend this to others}, or does not have the power to credibly commit to this (\autoref{subsec:cheaptalk}). 
 
 \begin{figure}
 \centering
 \begin{tikzpicture}
 \matrix[matrix of math nodes,every odd row/.style={align=right},every even row/.style={align=left},every node/.style={text width=1.5cm},row sep=0.2cm,column sep=0.2cm] (m) {
-$\frac12$&$0$\\
-$\frac12$&$1$\\
-1&0\\
-0&0\\
+$\frac12-\varepsilon$&$\sigma$\\
+$\frac12-\varepsilon$&$1-\varepsilon$\\
+$1-\varepsilon$&$\sigma$\\
+$\sigma$&$\sigma$\\
 };
 \draw (m.north east) rectangle (m.south west);
 \draw (m.north) -- (m.south);
@@ -36,16 +40,33 @@ $\frac12$&$1$\\
 \end{tikzpicture}
 \caption{Payoff Matrix for the two-driver game.}\label{fig:twodrivers}
 \end{figure}
-
-We assume two ways in which the platform can communicate the information to the drivers.
-\subsection{Cheap Talk}
+\subsection{Cheap Talk}\label{subsec:cheaptalk}
 In cheap talk, the platform discloses some information to a driver, which, given the update, updates their behavior. More concretely, there is an abstract set of \emph{messages} $m \in \mathcal M$ that the platform can send. The players receive the message and play optimally. In particular, the timeline of the game is:
 \begin{enumerate}
-	\item The demand at the area is realized.
-	\item The platform decides to send a message to the drivers.
-	\item The drivers decide to drive to the area or not.
-\end{enumerate}
-\subsection{Information Design}
+	\item The demand $\theta$ at the area is realized.
+	\item The platform decides to send messages $(m_1, m_2)$ to the drivers.
+	\item The drivers decide to drive or not drive to the area.
+	\end{enumerate}
+We solve for perfect Bayesian (signalling) equilibria of this game.
+\begin{theorem}
+	In the cheap talk model, Perfect Bayesian equilibria have the following form:
+	\begin{enumerate}
+		\item If $\sigma < \frac12 - \varepsilon$ or $\sigma > 1-\varepsilon$, then the platform is indifferent between any message, the drivers will go to the area or not go to it.
+		\item If $\sigma $
+	\end{enumerate}
+\end{theorem}
+If the general outside option is very low ($\sigma < \frac12 - \varepsilon$) or very high ($\sigma > 1 - \varepsilon$), drivers go to the area in hope to get a ride or stay away from it, respectively, even without demand information. The platform is indifferent between any demand information given that it won't influence the driver's decisions.
+
+For an intermediate outside option ($\frac12 - \varepsilon < \sigma < 1 - \varepsilon$), the 
+
+
+
+
+In this environment, hence, if the not internalized cost from 
+
+
+
+\subsection{Information Design}\label{subsec:infodesign}
 In information design, the drivers can commit to a driver 
 \subsection{Public and Private Messages}
 \section{Inefficiencies}

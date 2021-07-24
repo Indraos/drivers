@@ -6,17 +6,23 @@ The DiDi KDD Challenge 2020, sponsored by DiDi Yuching, consisted of two challen
 
 \subsection{Annotated Order Data}
 We are given for November 2016 about %TODO: Find out concrete number
-10 Million orders. An order consists of an origin-destination pair, a timestamp for beginning and end, an identifier for the driver that took the order, and a number of \emph{reward units}. We argue below that reward units are a constant factor and exemplify this with a good fit of our model in \autoref{chap:chengduregress}.
+10 Million orders. An order consists of an origin-destination pair, a timestamp for beginning and end, an identifier for the driver that took the order, and a number of \emph{reward units}. As the data is not publicly available anymore, we are unable to provide replication data for the following analysis.
+
+\subsection{Reinforcement Learning Challenge Leaderboard}
+The KDD 2020 reinforcement learning challenge solves an optimal repositioning problem together with an optimal order dispatch problem. The problem is a Markov Decision Process, which is partially observable for the repositioning challenge. In Reinforcement Learning language, which we review in \autoref{app:math}.
+
+The order dispatch problem is a reinforcement Learning Problem $(S, \mathcal A, T, R, f)$. The state is given locations of idle drivers as a list of orders. The actions are a (potentially partial) matching of available drivers to orders. All orders must be matched within a 2 second window, and otherwise fall through. 
+
+
+We also use the leaderboard's reinforcement challenge leaderboard. It is reproduced from 
+\subsection{Earnings Table}
+We are using a publicly available table for earnings from 2021. In 2017, DiDi introduced two tiers of service for their drivers, Express 
+
+
 %TODO: Visualize table.
 
 %https://www.biendata.xyz/competition/kdd_didi/evaluation/
 %https://pubs.aeaweb.org/doi/pdfplus/10.1257/jel.20181489
-\subsection{Reinforcement Learning Challenge Leaderboard}
-The KDD 2020 reinforcement learning challenge solves an optimal repositioning problem together with an optimal order dispatch problem. The problem is a Markov Decision Process, which is partially observable for the repositioning challenge. In Reinforcement Learning language, which we review in \autoref{app:math}
-
-We also use the leaderboard's reinforcement challenge leaderboard. It is reproduced from \url{
-\subsection{Earnings Table}
-
 \section{Estimation}
 \subsection{Model}
 We assume that there is a constant $c$ such that 
