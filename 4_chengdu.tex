@@ -9,16 +9,76 @@ We are given for November 2016 about %TODO: Find out concrete number
 10 Million orders. An order consists of an origin-destination pair, a timestamp for beginning and end, an identifier for the driver that took the order, and a number of \emph{reward units}. As the data is not publicly available anymore, we are unable to provide replication data for the following analysis.
 
 \subsection{Reinforcement Learning Challenge Leaderboard}
-The KDD 2020 reinforcement learning challenge solves an optimal repositioning problem together with an optimal order dispatch problem. The problem is a Markov Decision Process, which is partially observable for the repositioning challenge. In Reinforcement Learning language, which we review in \autoref{app:math}.
+The KDD 2020 reinforcement learning challenge solves an optimal repositioning problem together with an optimal order dispatch problem. The problem is a partial observed semi-Markov Decision Process. In Reinforcement Learning language, which we review in \autoref{app:math}. 
 
+The problem's state is given by
+
+%Each vehicle can serve only one trip at a time, i.e. carpooling is not considered. 
+%For any of those vehicles, if the idle time exceeds a threshold of L=5 minutes, the vehicle becomes eligible for repositioning.
+%The drivers other than those selected perform idle movement according to a set of generic transition probabilities. The vehicle speed is set at three meters per second for repositioning along spherical distance (a.k.a. great-circle distance). 
+
+%Evaluation
+%Each trip order in the released data and the evaluation environment is assigned a reward unit number that represents the potential income for the driver. Evaluation is run over multiple days in simulation, with the same city as the one in the released data set but different time interval. Submissions are evaluated on two metrics corresponding to the two tasks.
+%
+%Mean total driver income (for order dispatching).
+%For each day of simulation run, let 𝑖 = 1, · · · , 𝐼 be the indices for all the orders submitted to the system. Let 𝑝(𝑖)(𝜋𝑑,𝜋𝑟 ) be the actual income for order 𝑖 under order dispatching policy 𝜋𝑑 and vehicle repositioning policy 𝜋𝑟. If order 𝑖 is completed in the simulation, 𝑝(𝑖) is equal to the assigned reward units. Otherwise, 𝑝(𝑖) = 0. The evaluation is run over days 𝑛 = 1, · · · , 𝑁. The total income for day 𝑛 and submission 𝜋 = (𝜋𝑑, 𝜋𝑟) is
+%
+%The mean total driver income for the submission 𝜋 is defined as
+%
+%It is expected that the order dispatching algorithm has the major impact on this metric, as the repositioning algorithm controls only a small group of vehicles, which are unlikely to influence the global context.
+% 
+%Mean individual income rate (for vehicle repositioning).
+%The group of drivers whose repositioning strategy is to be run by 𝜋𝑟 are indexed by 𝑘 = 1, · · · , 𝐾. The total income for driver 𝑘 on day 𝑛 is
+%
+%and the corresponding online time for the driver is
+%
+%Income rate is defined as the income per unit online time. The mean individual income rate is
+%
+%The repositioning algorithm is naturally the main influencer on this metric, as the order dispatching algorithm is agnostic to the identity of this group of drivers.
 The order dispatch problem is a reinforcement Learning Problem $(S, \mathcal A, T, R, f)$. The state is given locations of idle drivers as a list of orders. The actions are a (potentially partial) matching of available drivers to orders. All orders must be matched within a 2 second window, and otherwise fall through. 
 
 
-We also use the leaderboard's reinforcement challenge leaderboard. It is reproduced from 
+We also use the leaderboard's reinforcement challenge leaderboard. It is taken from \tocite, table 5, for the case of where 2\% of drivers are repositioned.
 \subsection{Earnings Table}
 We are using a publicly available table for earnings from 2021. In 2017, DiDi introduced two tiers of service for their drivers, Express 
 
 
+%(S, A, T, R, γ)
+%https://github.com/mktal/kddcup-starting-kit/tree/master/model
+%  def dispatch(self, dispatch_observ):
+%    """ Compute the assignment between drivers and passengers at each time step
+%    :param dispatch_observ: a list of dict, the key in the dict includes:
+%        order_id, int
+%        driver_id, int
+%        order_driver_distance, estimated distance between the driver and the order, float
+%        order_start_location, a list as [lng, lat], float
+%        order_finish_location, a list as [lng, lat], float
+%        driver_location, a list as [lng, lat], float
+%        timestamp, current simulation time, int
+%        order_finish_timestamp, estimated order finish time, int
+%        day_of_week, Monday=0, Sunday=6, int
+%        reward_units, reward received after the order is completed, float
+%        pick_up_eta, estimated time (in seconds) it takes the driver to pick up the order, float
+%
+%    :return: a list of dict, the key in the dict includes:
+%        order_id and driver_id, the pair indicating the assignment
+%    """
+%    pass
+%
+%  def reposition(self, repo_observ):
+%    """ Compute the reposition action for the given drivers
+%    :param repo_observ: a dict, the key in the dict includes:
+%        timestamp: int
+%        driver_info: a list of dict, the key in the dict includes:
+%            driver_id: id of the idle driver in the treatment group, int
+%            grid_id: id of the grid the driver is located at, str
+%        day_of_week: int
+%
+%    :return: a list of dict, the key in the dict includes:
+%        driver_id: id of the idle driver in the treatment group, int
+%        destination: id of the grid the driver is repositioned to, str
+%    """
+%    pass
 %TODO: Visualize table.
 
 %https://www.biendata.xyz/competition/kdd_didi/evaluation/
