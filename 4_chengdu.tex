@@ -2,13 +2,19 @@
 After our investigation into potential multi-homing frictions in a market, we give evidence here on the value of information to drivers. This is aligned with claims by companies that offer information services to drivers \tocite.
 
 \section{Description of Data}
-The DiDi KDD Challenge 2020, sponsored by DiDi Yuching, consisted of two challenge. An order dispatch challenge, and a driver repositioning challenge. We will work with data and submissions of the latter. 
+The DiDi KDD Challenge 2020, sponsored by DiDi Yuching, consisted of two challenge. An order dispatch challenge, and a driver repositioning challenge. We will work with data and submissions of the latter.
 
-In the repositioning challenge, a policy that depends purely on 
 \subsection{Annotated Order Data}
+We are given for November 2016 about %TODO: Find out concrete number
+10 Million orders. An order consists of an origin-destination pair, a timestamp for beginning and end, an identifier for the driver that took the order, and a number of \emph{reward units}. We argue below that reward units are a constant factor and exemplify this with a good fit of our model in \autoref{chap:chengduregress}.
+%TODO: Visualize table.
 
+%https://www.biendata.xyz/competition/kdd_didi/evaluation/
+%https://pubs.aeaweb.org/doi/pdfplus/10.1257/jel.20181489
 \subsection{Reinforcement Learning Challenge Leaderboard}
+The KDD 2020 reinforcement learning challenge solves an optimal repositioning problem together with an optimal order dispatch problem. The problem is a Markov Decision Process, which is partially observable for the repositioning challenge. In Reinforcement Learning language, which we review in \autoref{app:math}
 
+We also use the leaderboard's reinforcement challenge leaderboard. It is reproduced from \url{
 \subsection{Earnings Table}
 
 \section{Estimation}
@@ -19,7 +25,7 @@ We assume that there is a constant $c$ such that
 \]
 The reason for this lies in the following proposition.
 
-\subsection{Regression}
+\subsection{Regression}\label{subsec:chengduregress}
 
 
 
