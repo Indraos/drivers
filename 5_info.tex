@@ -106,20 +106,29 @@ In this environment, hence, if the not internalized cost from
 \section{Inefficiencies}
 After analysing the predictions, we identify two sources of inefficiencies: a potential lack of commitment (a comparison between our cheap talk and the commitment solution) and a potential lack of being able to provide asymmetric information.
 \subsection{Inefficiencies through lack of commitment}
-\begin{cor}\label{cor:commitmentlack}
-	With a lack of commitment, the driver
-\end{cor}
+\begin{prop}\label{cor:commitmentlack}
+	The cheap talk version of the game has lower welfare. This statement is uniform: Both platform and driver surplus are lower in the cheap talk game.
+\end{prop}
+The statement shows that neither side benefits from limited commitment of the platform. The drivers have to rely on less information, and cannot trust the platform. The equilibrium is \enquote{babbling}. 
 
 \subsection{Inefficiencies through public information}
 Comparing our second two theorems, we find the following loss from public information.
 \begin{cor}
-	
+In the commitment regime, only allowing public information reduces platform and driver surplus. In the cheap talk regime, this restriction increases welfare
 \end{cor}
-
+This result might look somewhat surprising.
 \section{Remedies}
 Given the inefficiencies observed in the last section, some remedies for the market should be considered. We introduce two potential solutions to the platform's commitment problem, and one solution to the allocation problem. 
 \subsection{Commitment via third parties}
 A main driver of the inefficiencies in our model was that there is a conflict of incentives between the platform and the drivers. In this environment, if drivers \enquote{pay} the platform, there is not much. 
 \subsection{Commitment via reputation}
+A second opportunity for the platform to commit is via reputation. This assumes that the game of information provision studied in this section is repeated sufficiently often. 
+\begin{thm}[\tocite(Ellisson)]
+	In an infinitely repeated game with sufficiently patient agents, all individually rational payoffs can be achieved as a result of equilibrium play.
+\end{thm}
+This statement is allowed by agents playing a \enquote{punishment} equilibrium from the platform. It is unlikely in the setting of platform drivers that they can individually punish the platform, which, in return, does not incentivize the platform to give recommendations according to a commitment problem.
 \subsection{Approximate Efficiency of Public Information to Few Drivers}
-For our last statement, we will need a slightly more involved model. Several agents
+For our last statement, we will need a more general model. There are $n$ drivers, which learn a state $\theta \in \{0,1 , 2,\dots, n\}$. Drivers get a utility $1-\varepsilon$ if matched to a ride and they get a utility of $-\varepsilon$ if not matched. We assume that $n$ is large, and that the distribution function is 
+
+\section{Conclusion}
+This section presented a theoretical model 

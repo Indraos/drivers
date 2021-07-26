@@ -10,7 +10,7 @@ The DiDi KDD Challenge 2020, sponsored by DiDi Yuching, consisted of two challen
 We are given for November 2016 about %TODO: Find out concrete number
 10 Million orders. An order consists of an origin-destination pair, a timestamp for beginning and end, an identifier for the driver that took the order, and a number of \emph{reward units}. As the data is not publicly available anymore, we are unable to provide replication data for the following analysis.
 
-A main challenge in our analysis is to recover the number of reward units corresponding to an RMB.
+A main challenge in our analysis is to recover the number of reward units corresponding to a RMB. Given our estimation below, we can transfer repositioning scores to monetary values, which gives us an estimate of 
 
 \subsection{Reinforcement Learning Challenge Leaderboard}
 The KDD 2020 reinforcement learning challenge solves an optimal repositioning problem together with an optimal order dispatch problem. The problem is a partial observed semi-Markov Decision Process. In Reinforcement Learning language, which we review in \autoref{app:math}.
@@ -38,10 +38,9 @@ But even with more drivers, private messages, which we discuss in \autoref{chap:
 We are using a publicly available table for earnings from 2021. In 2017, DiDi introduced two tiers of service for their drivers, Express and Premium. After personal conversations with experts, we use the table for express, reproduced in \autoref{tab:earnings}. 
 
 The earnings table contains, dependent of the time of the day, a base price $b_t$, earnings per kilometer $l_t$ and minute driven $d_t$. At the time of the data, November 2016, additionally, a surge multiplier $s_t$. The total earnings $e_t$ for a ride of $L$ kilometers and duration $D$ are given by 
-\[
-	e_t = s_t(b_t + l_t L + d_t D).
-\]
-Our main goal from now is to calibrate the model to estimate the 
+\begin{equation}
+	e_t = s_t(b_t + l_t L + d_t D).\label{eq:earnings}
+\end{equation}
 \begin{table}
 \begin{tabular}{cccc}
 %TODO: Fill out table.
@@ -49,16 +48,18 @@ Our main goal from now is to calibrate the model to estimate the
 \caption{Earnings for express drivers}
 \end{table}
 \section{Estimation}
-This section estimates
-\subsection{Model}
-We assume that there is a constant $c$ such that 
-\[
-\operatorname{reward units} = c \operatorname{RMB}.
-\]
-The reason for this lies in the following proposition.
+We assume in the following that reward units are a constant multiple of RMB. The underlying assumption is the following proposition.
+
+\begin{prop}
+	Assume that reward units $r$ are a function $f$ of the earnings from an order in RMB. Assume that any policy generated for reward units is also optimal for policies in RMB. Then, the function $f$ is a constant multiplication, $f(x) = cx$ for some $c > 0$.
+\end{prop}
 
 \subsection{Regression}\label{subsec:chengduregress}
-We now run our regression to recover the amoung of money a reward unit comes with. 
+We assume that a negligible fraction of rides uses a surge price and therefore estimate an equation simplifying \eqref{eq:earnings},
+\[
+	e_t = b_t + l_t L + d_t D.
+\]
+Our estimate of time is the times given in the order data. We use the Google Maps API to estimate distance in driving. The estimation results are presented in \autoref{tab:rewardunits}. We find highly significant and consistent estimates on the coefficients for distance and duration.
 
 
 \begin{table}
@@ -99,7 +100,9 @@ We now run our regression to recover the amoung of money a reward unit comes wit
 \textbf{rush\_hour[T.True]:duration} &       0.0028  &        0.014     &     0.200  &         0.841        &       -0.024    &        0.030     \\
 \bottomrule
 \end{tabular}
-%\caption{OLS Regression Results}
+\caption{OLS Regression Results}\label{tab:rewardunits}
 \end{table}
 
+\subsection{Model Fit}
+We observe that much of the variance can be explained by our model ($R^2 = 0.887$)
 \section{Discussion}
