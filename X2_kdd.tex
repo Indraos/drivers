@@ -1,2 +1,44 @@
 \chapter{Complete Earnings Information for DiDi Platform Drivers}
-In this brief appendix, we reproduce payment information for platform drivers.
+In this brief appendix, we reproduce payment information for platform drivers and describes more concretely the decision environment for the Reinforcement Learning agent in the KDD 2020 Callenge. 
+
+\section{Payment Information for Drivers}
+
+
+\section{Decision Environment for Reinforcement Learning Agents}
+Here, we describe the exact state and action spaces for Reinforcement Learning agents in the KDD 2020 challenge.
+
+%https://github.com/mktal/kddcup-starting-kit/tree/master/model
+%  def dispatch(self, dispatch_observ):
+%    """ Compute the assignment between drivers and passengers at each time step
+%    :param dispatch_observ: a list of dict, the key in the dict includes:
+%        order_id, int
+%        driver_id, int
+%        order_driver_distance, estimated distance between the driver and the order, float
+%        order_start_location, a list as [lng, lat], float
+%        order_finish_location, a list as [lng, lat], float
+%        driver_location, a list as [lng, lat], float
+%        timestamp, current simulation time, int
+%        order_finish_timestamp, estimated order finish time, int
+%        day_of_week, Monday=0, Sunday=6, int
+%        reward_units, reward received after the order is completed, float
+%        pick_up_eta, estimated time (in seconds) it takes the driver to pick up the order, float
+%
+%    :return: a list of dict, the key in the dict includes:
+%        order_id and driver_id, the pair indicating the assignment
+%    """
+%    pass
+%
+%  def reposition(self, repo_observ):
+%    """ Compute the reposition action for the given drivers
+%    :param repo_observ: a dict, the key in the dict includes:
+%        timestamp: int
+%        driver_info: a list of dict, the key in the dict includes:
+%            driver_id: id of the idle driver in the treatment group, int
+%            grid_id: id of the grid the driver is located at, str
+%        day_of_week: int
+%
+%    :return: a list of dict, the key in the dict includes:
+%        driver_id: id of the idle driver in the treatment group, int
+%        destination: id of the grid the driver is repositioned to, str
+%    """
+%    pass

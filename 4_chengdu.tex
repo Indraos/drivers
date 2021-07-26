@@ -1,5 +1,7 @@
 \chapter{The Value of Information}\label{chap:chengdu}
-After our investigation into potential multi-homing frictions in a market, we give evidence here on the value of information to drivers. This is aligned with claims by companies that offer information services to drivers \tocite.
+After evidence from a survey, we move on with evidence derived from platform data. 
+
+we give evidence here on the value of information to drivers. This is aligned with claims by companies that offer information services to drivers \tocite.
 
 \section{Description of Data}
 The DiDi KDD Challenge 2020, sponsored by DiDi Yuching, consisted of two challenge. An order dispatch challenge, and a driver repositioning challenge. We will work with data and submissions of the latter.
@@ -8,82 +10,46 @@ The DiDi KDD Challenge 2020, sponsored by DiDi Yuching, consisted of two challen
 We are given for November 2016 about %TODO: Find out concrete number
 10 Million orders. An order consists of an origin-destination pair, a timestamp for beginning and end, an identifier for the driver that took the order, and a number of \emph{reward units}. As the data is not publicly available anymore, we are unable to provide replication data for the following analysis.
 
+A main challenge in our analysis is to recover the number of reward units corresponding to an RMB.
+
 \subsection{Reinforcement Learning Challenge Leaderboard}
 The KDD 2020 reinforcement learning challenge solves an optimal repositioning problem together with an optimal order dispatch problem. The problem is a partial observed semi-Markov Decision Process. In Reinforcement Learning language, which we review in \autoref{app:math}.
 
-The object's state 
+The system's observable state for the order dispatch algorithm consists of a list of orders to be dispatched at each point in time. This means a list of origin-destination pairs for orders, and for each driver timestamps of \emph{estimated} order pickup and arrival times, as well as the distance for the driver. The reinforcement learning algorithm's actions are matchings of drivers to orders, the challenge does not consider carpooling. Orders need to be dispatched within two seconds, otherwise they are lost. (We specify the complete environment in \autoref{app:kdd}. As part of the state transitions, there is estimated data for cancellation probabilities when sending a driver to pick up orders from different locations.
 
-%Each vehicle can serve only one trip at a time, i.e. carpooling is not considered. 
-%For any of those vehicles, if the idle time exceeds a threshold of L=5 minutes, the vehicle becomes eligible for repositioning.
-%The drivers other than those selected perform idle movement according to a set of generic transition probabilities. The vehicle speed is set at three meters per second for repositioning along spherical distance (a.k.a. great-circle distance). 
+The objective in the order dipatch algorithm is to maximize average driver income, which, as the system does not model drivers logging off strategically, is proportional to the total driver revenue in terms of orders completed.
 
-%Evaluation
-%Each trip order in the released data and the evaluation environment is assigned a reward unit number that represents the potential income for the driver. Evaluation is run over multiple days in simulation, with the same city as the one in the released data set but different time interval. Submissions are evaluated on two metrics corresponding to the two tasks.
-%
-%Mean total driver income (for order dispatching).
-%For each day of simulation run, let 𝑖 = 1, · · · , 𝐼 be the indices for all the orders submitted to the system. Let 𝑝(𝑖)(𝜋𝑑,𝜋𝑟 ) be the actual income for order 𝑖 under order dispatching policy 𝜋𝑑 and vehicle repositioning policy 𝜋𝑟. If order 𝑖 is completed in the simulation, 𝑝(𝑖) is equal to the assigned reward units. Otherwise, 𝑝(𝑖) = 0. The evaluation is run over days 𝑛 = 1, · · · , 𝑁. The total income for day 𝑛 and submission 𝜋 = (𝜋𝑑, 𝜋𝑟) is
-%
-%The mean total driver income for the submission 𝜋 is defined as
-%
-%It is expected that the order dispatching algorithm has the major impact on this metric, as the repositioning algorithm controls only a small group of vehicles, which are unlikely to influence the global context.
-% 
-%Mean individual income rate (for vehicle repositioning).
-%The group of drivers whose repositioning strategy is to be run by 𝜋𝑟 are indexed by 𝑘 = 1, · · · , 𝐾. The total income for driver 𝑘 on day 𝑛 is
-%
-%and the corresponding online time for the driver is
-%
-%Income rate is defined as the income per unit online time. The mean individual income rate is
-%
-%The repositioning algorithm is naturally the main influencer on this metric, as the order dispatching algorithm is agnostic to the identity of this group of drivers.
-The order dispatch problem is a reinforcement Learning Problem $(S, \mathcal A, T, R, f)$. The state is given locations of idle drivers as a list of orders. The actions are a (potentially partial) matching of available drivers to orders. All orders must be matched within a 2 second window, and otherwise fall through. 
+The system's observable state for the driver repositioning challenge, which we are most interested in, consists of a set of drivers to be repositioned. There is a targeted group of drivers, which, after their first five minutes of being idle move according to historical transition probabilities between regions, can be repositioned. In addition to a timestamp, the only information given on drivers is a coarse position on a hexagonal grid of the urban area of Chengdu. The actions are, for each driver to be repositioned, a destination location. Agents are then repositioned at 3m/s in the spherical/great arc distance.
 
+The objective in the driver repositioning problem is to maximize mean driver income rate for drivers. Denote $J_k^n (\pi)$ the online time for driver $k$ at day $n$ in hours.\footnote{While the existing documentation do not specify the unit of this measure, our calculations below show that assuming online time is measured in hours leads to correct results.} Denote driver $k$'d income on day $n$ under policy $\pi$. For the set of all targeted drivers $K$ and days $N$, the goal of the challenge was to maximize
+\[
+	\frac{1}{\lvert K\rvert} \sum_{k \in K} \frac{\sum_{n \in N} J_k^n (\pi)}{\sum_{n \in N} L_k^n (\pi)}.
+\]
 
-We also use the leaderboard's reinforcement challenge leaderboard. It is taken from \tocite, table 5, for the case of where 2\% of drivers are repositioned.
+We claim that the optimal repositioning score for drivers can give insight into the value of information for these drivers, as long as there are not too many of them.
+
+If drivers have sufficient information about the demand throughout the city, they can reposition themselves to another location in expectation of getting higher earnings. As the maximization takes into account all online time, in particular the time moving to another area of the city, the earnings increase from a performant repositioning algorithm in this challenge can also be seen as a proxy for earnings of informed drivers.
+
+In this argument, the small number of repositioned drivers is important. A challenge for drivers, but not for the platform, is that a knowledge on high demand in some area might lead to congestive effects---too many drivers enter high-demand areas.
+
+But even with more drivers, private messages, which we discuss in \autoref{chap:infodesign} help. Private messages is demand information (or, as we show, equivalently recommendations of to which area to move) only given to particular drivers, solving their 
+
 \subsection{Earnings Table}
-We are using a publicly available table for earnings from 2021. In 2017, DiDi introduced two tiers of service for their drivers, Express 
+We are using a publicly available table for earnings from 2021. In 2017, DiDi introduced two tiers of service for their drivers, Express and Premium. After personal conversations with experts, we use the table for express, reproduced in \autoref{tab:earnings}. 
 
-
-%(S, A, T, R, γ)
-%https://github.com/mktal/kddcup-starting-kit/tree/master/model
-%  def dispatch(self, dispatch_observ):
-%    """ Compute the assignment between drivers and passengers at each time step
-%    :param dispatch_observ: a list of dict, the key in the dict includes:
-%        order_id, int
-%        driver_id, int
-%        order_driver_distance, estimated distance between the driver and the order, float
-%        order_start_location, a list as [lng, lat], float
-%        order_finish_location, a list as [lng, lat], float
-%        driver_location, a list as [lng, lat], float
-%        timestamp, current simulation time, int
-%        order_finish_timestamp, estimated order finish time, int
-%        day_of_week, Monday=0, Sunday=6, int
-%        reward_units, reward received after the order is completed, float
-%        pick_up_eta, estimated time (in seconds) it takes the driver to pick up the order, float
-%
-%    :return: a list of dict, the key in the dict includes:
-%        order_id and driver_id, the pair indicating the assignment
-%    """
-%    pass
-%
-%  def reposition(self, repo_observ):
-%    """ Compute the reposition action for the given drivers
-%    :param repo_observ: a dict, the key in the dict includes:
-%        timestamp: int
-%        driver_info: a list of dict, the key in the dict includes:
-%            driver_id: id of the idle driver in the treatment group, int
-%            grid_id: id of the grid the driver is located at, str
-%        day_of_week: int
-%
-%    :return: a list of dict, the key in the dict includes:
-%        driver_id: id of the idle driver in the treatment group, int
-%        destination: id of the grid the driver is repositioned to, str
-%    """
-%    pass
-%TODO: Visualize table.
-
-%https://www.biendata.xyz/competition/kdd_didi/evaluation/
-%https://pubs.aeaweb.org/doi/pdfplus/10.1257/jel.20181489
+The earnings table contains, dependent of the time of the day, a base price $b_t$, earnings per kilometer $l_t$ and minute driven $d_t$. At the time of the data, November 2016, additionally, a surge multiplier $s_t$. The total earnings $e_t$ for a ride of $L$ kilometers and duration $D$ are given by 
+\[
+	e_t = s_t(b_t + l_t L + d_t D).
+\]
+Our main goal from now is to calibrate the model to estimate the 
+\begin{table}
+\begin{tabular}{cccc}
+%TODO: Fill out table.
+\end{tabular}
+\caption{Earnings for express drivers}
+\end{table}
 \section{Estimation}
+This section estimates
 \subsection{Model}
 We assume that there is a constant $c$ such that 
 \[
@@ -92,10 +58,7 @@ We assume that there is a constant $c$ such that
 The reason for this lies in the following proposition.
 
 \subsection{Regression}\label{subsec:chengduregress}
-
-
-
-
+We now run our regression to recover the amoung of money a reward unit comes with. 
 
 
 \begin{table}
