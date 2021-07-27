@@ -1,5 +1,16 @@
 \chapter{Related Work}\label{chap:literature}
 Information can add another dimension to driver behavior. In this section, we review studies that relate both in goal and in methodology to ours.
+%TODO: Incorporate this structure
+%- Matching
+%- Pricing
+%- Information
+%- Asymmetry
+%
+%- Surveys
+%
+%- Driver Data: Scraping, simulation, working with platform, via drivers
+%
+%- Mechanism Design: Cheap Talk, Information design, Mechanism  and Information co-design.
 \section{Platform Design}
 Stated that matching/allocation
 
@@ -7,7 +18,7 @@ In a mobility setting, the three tiers of information design, pricing and inform
 
 We view information design mostly for a monopolistic setting and view it for future work. Views about third-party integration are orthogonal to our question \cite{Zhou2020}.
 \subsection{Matching}
-General matching is solved in the OR literature. \tocite(dynamic stochastic matching with limited time)
+General matching is solved in the OR literature. \cite{Aouad2020}, and \cite{Vazifeh2018} proposes other repositioning for drivers.
 
 An observation in the literature on matching is the Wild Goose Chase. A small number of drivers move far for.
 
@@ -38,8 +49,7 @@ Except for in routing games (\cite{Wu2021}, \cite{Systems2021}, \cite{Wu2017}), 
 
 While we do not study this, information and mechanism design come together. \cite{Ong2021} proposes a model for incentivizing drivers to move to a new location with monetary incentives. We discuss below in \autoref{chap:infodesign} how this system involves implicitly asymmetric information to drivers, and could be replaced by pure information design if commitment was possible.
 
-\subsubsection{Driver Behavior}
-There are also study that do not view information design as a platform question. 
+Without phrasing the problem of changing the position of drivers as a platform design question, there are studies that There are also study that do not view information design as a platform question. 
 
 \cite{Chaudhari_Byers_Terzi_2018} design an earnings-maximization strategy for drivers and show that strategic behavior about when and where to drive have significant impact on drivers' earnings.
 
@@ -59,13 +69,13 @@ Papers showing the impact of multi-homing use either stylized models such as tho
 
 To understand platform pricing, many platforms 
 \subsection{Scraping-Based Studies}
-Some platforms scrape data from platforms, such as studies on platform competition in New York \tocite (rosaia) and a consumer surplus comparison of taxi and ridesourcing \tocite (shapiro). Similarly, \tocite (peaking under the hood) uses large-scale simulation of apps.
+Some platforms scrape data from platforms, such as studies on platform competition in New York \cite{Rosaia2020} and a consumer surplus comparison of taxi and ridesourcing \cite{Shapiro2018}. Similarly, \cite{Chen2015a} uses large-scale simulation of apps.
 
 \cite{Chen2015} deploy several copies of the Uber smartphone app to estimate pricing, in particular surge pricing, and mak observations on fairness of pricing.
 \subsection{Information from Platforms}
 The solution concept that can be created by targeted information design, Bayes correlated equilibrium, comes from \cite{Bergemann2016}.
 \subsection{Gathering Driver Data}
-
+Several initiatives, such as the driver 
 
 Other papers assume that in moments where agents join a platform, they have exact knowledge of the surplus that is gained and the prices that both sides receive \cite{liu2019multihoming}.
 
@@ -81,15 +91,17 @@ Simple driver behavior models are proposed in the pricing literature of the ride
 
 \cite{Jiang_Kong_Zhang_2021} show that regret aversion and ignorance of suggestion are the two major behavioral factors which influence drivers' re-positioning decisions.
 
-\section{Cheap Talk and Information Design}
+\subsection{Cheap Talk and Information Design}
 Our third contribution contributes to a line of work on cheap talk and information design. 
 \subsection{Cheap Talk}
-The standard model of Crawford-Sobel \tocite, in which one agent, which has a piece of information, communicates with another agent, who can take an action affecting both agents' utility, too strong mismatch of incentives leads to no communication. A classical model of cheap talk, communication is costless, and does neither binds sender nor receiver to take a particular action in the future \tocite (Farrell). In our first model of information provision, we model the strategic interaction between the platform and drivers as a cheap talk game, and show that if the incentives of the platform and drivers diverge sufficiently, that, in equilibrium, no information is transmitted, in terms of the cheap talk literature, the platform \emph{babbles}.
+Cheap talk started with the influential paper \cite{Crawford2016}. Our analysis mostly builds on \cite{Goltsman2011}, which generalizes the original model to a strategic section.
+
+, in which one agent, which has a piece of information, communicates with another agent, who can take an action affecting both agents' utility, too strong mismatch of incentives leads to no communication. A classical model of cheap talk, communication is costless, and does neither binds sender nor receiver to take a particular action in the future \cite{Crawford2016}. In our first model of information provision, we model the strategic interaction between the platform and drivers as a cheap talk game, and show that if the incentives of the platform and drivers diverge sufficiently, that, in equilibrium, no information is transmitted, in terms of the cheap talk literature, the platform \emph{babbles}.
 \subsection{Bayesian Persuasion and Information Design}
-In contrast to cheap talk, Information Design models allow the sender to commit to rules for which information they reveal \tocite (kamenica gentzkow, also annual reviews). This can have profound implications for the outcome compared to Cheap Talk. This will also be a feature in our model in \autoref{chap:infodesign}. 
+In contrast to cheap talk, Information Design models allow the sender to commit to rules for which information they reveal \cite{Kamenica2019a}. This can have profound implications for the outcome compared to Cheap Talk. This will also be a feature in our model in \autoref{chap:infodesign}. 
 
 \subsection{Information and Mechanism Co-Design}
 
 We build on a literature in information design \cite{Bergemann}. \cite{Bergemann2020a}
 
-While we consider a pure mechanism design problem, work on the co-design of mechanisms and information, such as \tocite(mechanism design with aftermarkets). This paper considers the informational effect of allocations. In our platform driver setting this would model the informational effect of surge prices for rational drivers.
+While we consider a pure mechanism design problem, work on the co-design of mechanisms and information, such as \cite{Dworczak2020}. This paper considers the informational effect of allocations. In our platform driver setting this would model the informational effect of surge prices for rational drivers.
