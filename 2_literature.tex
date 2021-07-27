@@ -1,11 +1,71 @@
 \chapter{Related Work}\label{chap:literature}
-Our work at the intersection of the Labor Economics in the Gig Economy, Supply Management in Transportation, Information Design, and information gathering from platforms contributes to several literatures.
-\section{Estimating Labour Supply Through Surveys}
-Our contribution first contribution, a survey to platform drivers in Jakarta, Indonesia, uses a survey to study the labor supply decisions of drivers, and does so using a survey.
-\subsection{Models of Platform Driver Labour Supply}
-Labor supply choices of drivers, or more generally participation decisions in two-sided platforms, is assumed as exogenous, or rational expectations of drivers is assumed.
+Information can add another dimension to driver behavior. In this section, we review studies that relate both in goal and in methodology to ours.
+\section{Platform Design}
+Stated that matching/allocation
+
+In a mobility setting, the three tiers of information design, pricing and information are distinct but interesting of unified models of matching \cite{Guo}. This paper studies how to thing integrated of systems. Information design cannot be represented in this view.
+
+We view information design mostly for a monopolistic setting and view it for future work. Views about third-party integration are orthogonal to our question \cite{Zhou2020}.
+\subsection{Matching}
+General matching is solved in the OR literature. \tocite(dynamic stochastic matching with limited time)
+
+An observation in the literature on matching is the Wild Goose Chase. A small number of drivers move far for.
+
+\cite{Castillo2017a} makes this point.
+\cite{Xu2020} shows in a more general environment that this insight holds.
+
+
+The dynamic rebalancing problem also shows up in bikes, \cite{Barabonkov2020}. 
+\subsection{Pricing}
+
+Some studies directly factor in that platforms might compete on idleness and price. This assumes that platforms internalize the prices that drivers get from their work \cite{Bryan2019a}
+
+
+Behavioral assumptions in Bayesian games are very peculiar \cite{Fang2018a,Rosaia2020}. As an approximation, \cite{Rosaia2020} assumes that at random time points drivers reconsider where to go given information on expected pay in an area.
+
+\cite{Lee2019} takes into account in pricing what happens to drivers that move around while moving to another place. 
+\subsection{Information}
+
+In the focus group study \cite{Ashkrof2020}, drivers report mislead repositioning guidance as a factor for improvement. We support this point in \autoref{chap:infodesign}. 
+
+Except for in routing games (\cite{Wu2021}, \cite{Systems2021}, \cite{Wu2017}), informaiton design has not arrived in transportation very much. \cite{Wu2021} studies a model of competing information providers, which are restricted to public informatoin to drivers. As they, we find inefficiencies arising from only interacting with one platform.
+
+\cite{Shapiro2018} shows using data from New York City that the highest welfare gains arise in less dense areas. In particular, these are areas where the informational component of platform design is particularly crucial. 
+
+\cite{Haven2013} study as an early application strategic environments with many players and derive practical models. They find that in environments with stategic substitutabilities, asymmetric information provision can be desired. 
+
+\cite{Jullien2019} study a two-sided market in which groups are uncertain about the joining decision of the other side of the market.
+
+While we do not study this, information and mechanism design come together. \cite{Ong2021} proposes a model for incentivizing drivers to move to a new location with monetary incentives. We discuss below in \autoref{chap:infodesign} how this system involves implicitly asymmetric information to drivers, and could be replaced by pure information design if commitment was possible.
+
+\subsubsection{Driver Behavior}
+There are also study that do not view information design as a platform question. 
+
+\cite{Chaudhari_Byers_Terzi_2018} design an earnings-maximization strategy for drivers and show that strategic behavior about when and where to drive have significant impact on drivers' earnings.
+
+In the literature on order dispatching, farsighted algorithms solve the dynamic rebalancing problem. \cite{Xu2018}
+
+\subsection{Preference Elicitation}
+\cite{Zhang2019} study mobility sharing as a preference matching environment. 
+\subsection{Asymmetry in Platform Design}
+Asymmetry to leverage network externalities are well-known in the network externality literature. \cite{Jullien2011} studies a model of a one-sided platform with network externalities, and devises how a platform would optimally price to agents. The optimal pricing involved. 
+\section{Methodology}
+\subsection{Survey Methods}
+\subsection{Estimating Online Time of Drivers}
+\subsection{Mechanism Design}
+
 
 Papers showing the impact of multi-homing use either stylized models such as those inspired by Hotelling lines \cite{bryan2019theory,bakos2020platform}, assume exogenous models of \cite{castillo2017surge} or do not model multi-homing decisions \cite{liu2017impact}.
+
+To understand platform pricing, many platforms 
+\subsection{Scraping-Based Studies}
+Some platforms scrape data from platforms, such as studies on platform competition in New York \tocite (rosaia) and a consumer surplus comparison of taxi and ridesourcing \tocite (shapiro). Similarly, \tocite (peaking under the hood) uses large-scale simulation of apps.
+
+\cite{Chen2015} deploy several copies of the Uber smartphone app to estimate pricing, in particular surge pricing, and mak observations on fairness of pricing.
+\subsection{Information from Platforms}
+The solution concept that can be created by targeted information design, Bayes correlated equilibrium, comes from \cite{Bergemann2016}.
+\subsection{Gathering Driver Data}
+
 
 Other papers assume that in moments where agents join a platform, they have exact knowledge of the surplus that is gained and the prices that both sides receive \cite{liu2019multihoming}.
 
@@ -17,21 +77,10 @@ Simple driver behavior models are proposed in the pricing literature of the ride
 \cite{Bai_So_Tang_Chen_Wang_2019} propose a queuing model to optimize platforms' profit while considering price-sensitive customers and earning-sensitive drivers. Each driver has a reservation earning rate based on his outside option and the driver will provide services only if earning rate exceeds the reserved value.
 \cite{Taylor_2018} evaluate the impact of uncertainty in passenger delay sensitivity and driver independence on platforms' optimal per-service price and wage. Each driver has an opportunity cost and the driver will participate in the platform when having non-negative expected utility. 
 
-To better understand driver behavior, several studies discuss the general reasons why drivers work in the ride-hailing system.
-An econometric framework with closed-form measures is proposed by \cite{Sun_Wang_Wan_2019} to estimate both the participation elasticity and working-hour elasticity for drivers. In particular, this article assumes that there 
-\cite{Chaudhari_Byers_Terzi_2018} design an earnings-maximization strategy for drivers and show that strategic behavior about when and where to drive have significant impact on drivers' earnings.
-\cite{Jiang_Kong_Zhang_2021} show that regret aversion and ignorance of suggestion are the two major behavioral factors which influence drivers' re-positioning decisions.
-\subsection{Labour Economics and Industrial Economics}
-Our analysis in \autoref{chap:jakarta} pertains to 
 
-\section{Investigations into Platform Pricing}
-To understand platform pricing, many platforms 
-\subsection{Scraping-Based Studies}
-Some platforms scrape data from platforms, such as studies on platform competition in New York \tocite (rosaia) and a consumer surplus comparison of taxi and ridesourcing \tocite (shapiro). Similarly, \tocite (peaking under the hood) uses large-scale simulation of apps.
-\subsection{Information from Platforms}
-\subsection{Gathering Driver Data}
-\section{Driver Repositioning}
-The repositioning of drivers, also known as Dynamic Rebalancing in the literature on platform design. 
+
+\cite{Jiang_Kong_Zhang_2021} show that regret aversion and ignorance of suggestion are the two major behavioral factors which influence drivers' re-positioning decisions.
+
 \section{Cheap Talk and Information Design}
 Our third contribution contributes to a line of work on cheap talk and information design. 
 \subsection{Cheap Talk}
@@ -40,4 +89,7 @@ The standard model of Crawford-Sobel \tocite, in which one agent, which has a pi
 In contrast to cheap talk, Information Design models allow the sender to commit to rules for which information they reveal \tocite (kamenica gentzkow, also annual reviews). This can have profound implications for the outcome compared to Cheap Talk. This will also be a feature in our model in \autoref{chap:infodesign}. 
 
 \subsection{Information and Mechanism Co-Design}
+
+We build on a literature in information design \cite{Bergemann}. \cite{Bergemann2020a}
+
 While we consider a pure mechanism design problem, work on the co-design of mechanisms and information, such as \tocite(mechanism design with aftermarkets). This paper considers the informational effect of allocations. In our platform driver setting this would model the informational effect of surge prices for rational drivers.
