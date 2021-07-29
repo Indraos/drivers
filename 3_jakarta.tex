@@ -1,4 +1,4 @@
-\chapter{Non-Monetary Shapers of Supply Decisions}\label{chap:jakarta}
+\chapter{Platform Driver Labor Supply Beyond Earnings Maximization}\label{chap:jakarta}
 \begin{quote}
     Since Uber’s introduction in 2009, ridesharing platforms like Uber, Didi, Grab, and Lyft have
 radically transformed the taxi and limo industry. These services, which allow consumers to order
@@ -23,9 +23,7 @@ setting the pricing terms between them. ---\cite{Bryan2019a}
 %- Broader perspective on design of platforms could help
 
 
-
-
- This chapter analyzes results from a survey in Jakarta and shows significant departures from earnings maximization among platform drivers in Indonesia. We highlight context in free-text answers to gather evidence for reasons outside of earnings maximization.
+ This chapter analyzes results from a survey in Jakarta and shows that drivers do not purely maximize their earnings in their labor supply choices. In an analysis of free-text answers, we highlight understanding of the app and information as important determinants of driver behavior.
 \section{Survey}
 We analyze data from a survey conducted in spring 2021 in Jakarta, Indonesia.
 \subsection{Sample}
@@ -34,8 +32,6 @@ Participants were asked to complete an online survey hosted on Qualtrics and rec
 Figure \ref{fig:age} shows the age distribution of participants, where around 50\% of drivers are within the age group of 30 to 39. Figure \ref{fig:gender_mode_driver} reveals that over 97\% of drivers who participated in the survey are male and around 97\% are motorbike drivers. 
 
 There exist three major ride-hailing companies in Jakarta: Grab, GoJek and Shopee. While Grab and Gojek are incumbents in this market, Shoppee entered the market only in 2021. Figure \ref{fig:platform} shows the percentage of drivers working for each of the platforms, double-counting multi-homers. Around 94\% of drivers work for the incumbents Grab or GoJek. In our sample of drivers, only 12\% of drivers questioned in the survey are multi-homers.
-
-We are not aware of demographics of TNC drivers in Jakarta and hence unable to verify representativity of our sample.
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=10cm]{platform.png}
@@ -60,7 +56,6 @@ We are not aware of demographics of TNC drivers in Jakarta and hence unable to v
          \caption{Sociodemographic information and driving behaviors of survey participants.}
          \label{fig:survey_stats}
  \end{figure}
-%
 \subsection{Questions}
  The survey consists of multiple questions blocks and is given in its entirety in Appendix~\ref{appendix:survey}. 
 
@@ -72,9 +67,9 @@ In a third block, for each ride-hailing platform survey participants have worked
 These questions included whether drivers mostly worked on delivering food or transporting passengers, their most frequent driving area, days and hours to work, total driving distance, and daily salaries.
 
 A final block elicited socio-demographic characteristics including age, gender, educational status, income level, living areas, and weekly expenses. 
-
 \section{Findings}
- To understand the multi-homing behavior and who works for multiple ride-hailing platforms, we first constructed a Lasso regression model with the regularization coefficient $0.001$ based on drivers' socio-demographic information, which were shown in Table~\ref{tab:multihoming}.%TODO CHoosing \alpha independent of the regression.
+ To understand the multi-homing behavior and who works for multiple ride-hailing platforms, we first constructed a Lasso regression model with the regularization coefficient $0.001$ based on drivers' socio-demographic information, which were shown in Table~\ref{tab:multihoming}.%TODO: CHoosing \alpha independent of the regression.
+ 
  We find that male drivers whose age is between 30 to 39 and above 50 are less likely to multi-home in Jakarta market. Also, drivers are less likely to multi-home if working for ride-hailing platforms is the main source of their income.
  On the other hand, we find that drivers with higher degrees are significantly more likely to multi-home. 
  \begin{table}
@@ -116,6 +111,7 @@ A final block elicited socio-demographic characteristics including age, gender, 
  \end{table}
 
  Finally, we turn our attention to the results of our regression models exploring the impact of being a part-time ride-hailing driver on drivers' multihoming behaviors.
+ 
  From the model results shown in Table \ref{tab:part-timer}, we find that part-time ride-hailing drivers are more likely to multihome in our sample. However, it is a less significant predictor of multihoming behaviors compared to other variables above.
 
  \begin{table}
@@ -134,7 +130,7 @@ A final block elicited socio-demographic characteristics including age, gender, 
      \label{tab:part-timer}
  \end{table}
  \subsection{Earnings for Different Platforms}
- Then, we consider the Jakarta ride-hailing market and drivers' hourly salary and total working hours. Figure \ref{fig:hourly_salary} displays the hourly salary distribution of all survey respondents in Jakarta, which fits into a negative binomial distribution. Most ride-hailing drivers earn less than 20,000 Rp (approximately 1.4 USD) per hour, which is significantly less than the average hourly salary 120,175 Rp (approximately 8.4 USD) in Jakarta~\cite{Jakarta_hourly_salary}.
+ Then, we consider the Jakarta ride-hailing market and drivers' hourly salary and total working hours. Figure \ref{fig:hourly_salary} displays the hourly salary distribution of all survey respondents in Jakarta, which fits into a negative binomial distribution. Most ride-hailing drivers earn less than 20,000 Rp (approximately 1.4 USD) per hour, which is significantly less than the average hourly salary 120,175 Rp (approximately 8.4 USD) in Jakarta~\cite{Jakarta_hourly_salary}. This stands even when controlling for sociodemographics.
 
  \begin{figure}
      \centering
@@ -193,10 +189,6 @@ A final block elicited socio-demographic characteristics including age, gender, 
  We use survey evidence showing that in an  a significant share of non-multi homing drivers in an oligopolistic market for ridehailing in Jakarta. Our findings hint at substantial frictions to multi-homing, non-monetary incentives in the decision what TNC drivers choose to drive for, and when to drive.
 
 \subsection{Discussion}
- As our evidence can only explain a small part of the variation in regression models, we propose other variables that could explain more of the variation in multi-homing and pay.
- \paragraph{Experience}
- Respondents mention \emph{focus} prominently in reasons for multi-homing. To disambiguate whether this focus refers to learning of the platform or on permanent presence on the platform, joining date of the platform could be used as a proxy for experience.
- \paragraph{Risk Preferences}
- Another important explanation of variation in earnings could be given by the risk preferences of drivers. High variation in pay could stem from different behavior and different willingness to drive in times where getting a job from the platform are uncertain. Existing short surveys \cite{falk2016preference} allow to estimate risk preferences.
+We found in our analysis that 
  
  \section{Conclusion}
