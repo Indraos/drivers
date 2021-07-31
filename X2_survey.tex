@@ -1,4 +1,4 @@
-\chapter{Datasets and Surveys}
+\chapter{Supplemental Material}
 \section{Driver Survey}\label{appendix:survey}
 
 \subsection{Basic Driving Information and Behavior}
@@ -317,40 +317,17 @@ In this brief appendix, we reproduce payment information for platform drivers an
 
 
 \subsection{Decision Environment for Reinforcement Learning Agents}
-Here, we describe the exact state and action spaces for Reinforcement Learning agents in the KDD 2020 challenge.
+Here, we describe the observed state and action for the Reinforcement Learning challenge, compare \cite{Xie2020}. 
+\subsubsection{Dispatch Challenge}
+The order dispatch, a matching challenge, observes as an observable state for each incoming order and each idle driver in the platform during each time step
+\begin{itemize}
+	\item The estimated distance from driver to order
+	\item The origin and destination of the order
+	\item The estimated order start and completion time assuming the order was matched to the driver
+	\item The reward units as an earnings proxy for the driver.
+\end{itemize}
+The state of the system contains all driver's locations at each time.
 
-%https://github.com/mktal/kddcup-starting-kit/tree/master/model
-%  def dispatch(self, dispatch_observ):
-%    """ Compute the assignment between drivers and passengers at each time step
-%    :param dispatch_observ: a list of dict, the key in the dict includes:
-%        order_id, int
-%        driver_id, int
-%        order_driver_distance, estimated distance between the driver and the order, float
-%        order_start_location, a list as [lng, lat], float
-%        order_finish_location, a list as [lng, lat], float
-%        driver_location, a list as [lng, lat], float
-%        timestamp, current simulation time, int
-%        order_finish_timestamp, estimated order finish time, int
-%        day_of_week, Monday=0, Sunday=6, int
-%        reward_units, reward received after the order is completed, float
-%        pick_up_eta, estimated time (in seconds) it takes the driver to pick up the order, float
-%
-%    :return: a list of dict, the key in the dict includes:
-%        order_id and driver_id, the pair indicating the assignment
-%    """
-%    pass
-%
-%  def reposition(self, repo_observ):
-%    """ Compute the reposition action for the given drivers
-%    :param repo_observ: a dict, the key in the dict includes:
-%        timestamp: int
-%        driver_info: a list of dict, the key in the dict includes:
-%            driver_id: id of the idle driver in the treatment group, int
-%            grid_id: id of the grid the driver is located at, str
-%        day_of_week: int
-%
-%    :return: a list of dict, the key in the dict includes:
-%        driver_id: id of the idle driver in the treatment group, int
-%        destination: id of the grid the driver is repositioned to, str
-%    """
-%    pass
+
+\subsubsection{Repositioning Challenge}
+The repositioning challenge observes as an observable state for each driver in a \emph{targeted} group of drivers that is idle for at least 5 minutes and each time step at which repositioning is possible a coarse location of the driver on a coarse grid of Chengdu.

@@ -20,6 +20,7 @@
 \usepackage{subcaption}
 \usepackage[inline]{enumitem}
 \usepackage{booktabs}
+\newcommand{\R}{\mathbb{R}}
 \graphicspath{{/Users/andreashaupt/Downloads/X_MasterThesis/tex/Figures/}}
 \bibliography{/Users/andreashaupt/Documents/Writing/Bibliography/library}
 
@@ -44,12 +45,10 @@ B.Sc., University of Frankfurt (2019)}
 \maketitle
 \cleardoublepage
 \setcounter{savepage}{\thepage}
-\begin{abstractpage}
-With the rise of app-based matching platforms, gig workers become important suppliers of labor to transportation and food delivery. We demonstrate the relevance and study the design of providing demand information to gig workers. We find in a large-scale survey in Jakarta tha This thesis makes a case for the importance of another dimension of platform design for platform drivers: Demand information given to drivers. Using a large-scale survey and platform-provided data, we give evidence for the relevance of demand information for drivers' labor supply decisions. We then start our investigation into how information should be designed, and derive policy recommendations for platforms and their regulators. %TODO: Expand, we make a case for info as important
-\end{abstractpage}
+\input{01_abstract}
 \cleardoublepage
-\section*{Acknowledgments}
-I thank my family, Helga and Katrin Haupt, my roommates, Isabell, Juan-Pablo, Sophia, Salome, Bernardo, and friends and mentors, Christina, Marieke and Roberta, for the emotional support I needed in this time. I thank Stephen Zoepf (Lacuna.ai, Stanford University), Ryan Green (Gridwise), Dan Calacci (MIT Human Dynamics), Xiaotong Guo (MIT JTL), and Hai Wang (Singapore Management University) for helpful conversations. I thank my reader John Horton (MIT Sloan) for his open feedback. Finally, I thank my supervisor Jinhua Zhao (MIT JTL) for his visions, and for being such a kind lab leader.
+\input{02_acknowledgements}
+
 \pagestyle{plain}
 \tableofcontents
 \newpage
@@ -63,11 +62,8 @@ I thank my family, Helga and Katrin Haupt, my roommates, Isabell, Juan-Pablo, So
 \input{5_info}
 \input{6_policy}
 \appendix
-\input{X1_omitted}
 \input{X2_survey}
 \input{X3_math}
-\input{X_tables}
-\input{X_figures}
 \begin{singlespace}
 \printbibliography
 \end{singlespace}

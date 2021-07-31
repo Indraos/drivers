@@ -44,11 +44,67 @@ interests. While the commitment assumption may be problematic in many settings, 
 
 In this section, we study \emph{pure} information design for platform drivers. We refer to it as \emph{pure} as we study information provision while keeping the driver payoffs fixed. We show several limitations for the platform: Drivers, in equilibrium, ignore information if it cannot commit to not giving a particular driver some part of the information, it gives
 \section{Model}
-In our stylized model, two agents simultaneously decide whether to drive to a part of a city (\enquote{go}) or to follow other business on or off the platform (\enquote{not go}). The platform observes a demand state $\theta \in \{0,1\}$. We can view this as the outcome of an accurate demand prediction model. Before each of the drivers makes her decision on whether to drive, the system can send a message $m_1(\theta)$ to driver $1$ and $m_2(\theta)$ to driver $2$ on whether there is demand on the platform. Drivers get utility $1$ if they get an order, and incur a cost of driving to the location of $\varepsilon$. This gives, depending on the demand state, the game tables in \autoref{fig:twodrivers}
+We consider a finite set of agents $i = 1, 2, \dots, n$. There are states of the world $\Theta$. We consider a basic game given by, for each player $i$ an action set $A_i$ and a utility function
+\[
+u_i \colon A \times \Theta \to \R
+\]
+where $A = A_1 \times \cdots \times A_n$ and a prior distribution $F \in \Delta(\Theta)$ which we assume has full support. We assume that this prior is shared by all players and the designer. $((A_i, u_i)_{i=1,2,\dots, n}, F)$ hence specifies a standard game. 
 
-The platform gets utility of $1$ if at least one of the drivers gets to the desired location, and $0$ utility otherwise. The divergence of platform and driver utility stems from the payment structure for drivers, as we described in the introduction: Drivers only get paid for phase 2, when they are matched to a ride.
+Our main model will consider $n=2$ drivers that simultaneously decide whether to drive to a part of a city (\enquote{go}) or to follow other business on or off the platform (\enquote{not go}), i.e. $A_1 = A_2 = \{\text{go}, \text{not go}\}$. The utility functions are given by the tables in \autoref{fig:twodrivers}. We assume that the prior is that with probability $p \in [0,1]$ demand is realized. This corresponds to an outside option for the drivers of $\sigma$ and a cost to go to the high-demand area of $\varepsilon$.
 
-The platform can send messages to drivers. The platform can either send a message to drivers without committing to any particular form of information revelation (\autoref{subsec:infodesign}) such as \enquote{I recommend you to go to this place, and I will not recommend this to others}, or does not have the power to credibly commit to this (\autoref{subsec:cheaptalk}). 
+We call this game the \emph{basic game}. 
+
+The information designer has a utility function
+\[
+v \colon A \times \Theta \to \R.
+\] 
+In our example, the information designer is a TNC. It will be an information designer, and will get utility $1$ if at least one driver is able to satisfy demand, otherwise a utility of $0$. 
+
+The platform can design an \emph{information structure} $S$ consisting of, for each agent $i = 1, 2, \dots, n$ a type space $T_i$ and a type distribution $\pi \colon \Theta \to T$, where $T = T_1 \times \cdots \times T_n$, $S = (T, \pi)$.
+
+The timeline of this model is
+\begin{itemize}
+	\item The information designer commits to an information structure $S = (T, \pi)$.
+	\item The state of the world is realized.
+	\item The players each receive their types $\pi_i(\theta)$.
+	\item The agents select their action $a_i$.
+	\item The payoffs are realized.
+\end{itemize}
+A revelation principle, which we do not prove, is that the messages that the information designer/platform needs to send, can be restricted to action recommendations
+\[
+	\sigma\colon\Theta \times T \to \Delta(A)
+\]
+such that the agent, given their information on $\Theta$ as given by their information, would like to follow the recommendation. For a full statement and proof of the revelation principle, compare \cite{Baskerville2011}. Mathematically, the remaining constraint of \emph{obedience} can be written as
+\[
+	\sum_{a_i, t_i, \theta} u_i((a_i, a_{-i}); \theta)\sigma((a_i,a_{-i}) | (t_i, t_{-i}), \theta) \pi((t_i, t_{-i}) | \theta) F(\theta) \ge \sum_{a_i, t_i, \theta} u_i((a_i', a_{-i}); \theta)\sigma((a_i,a_{-i}) | (t_i, t_{-i}), \theta) \pi((t_i, t_{-i}) | \theta) F(\theta)
+\]
+for any $a_i' \in A_i$. A profile of decision rules $\sigma$ that is obedient is called a Bayes Correlated Equilibrium (BCE). In our example of $n=2$ drivers, obedience means that it is optimal for drivers to follow the recommendation of the platform. 
+
+The platform's utility is given by 
+\begin{equation}
+V(\sigma) = \sum_{a,t,\theta} v(a,\theta) \sigma(a| t, \theta) \pi(t | \theta) F(\theta).\label{eq:value}
+\end{equation}
+The platform's optimal information design is maximizing \eqref{eq:value} among all BCEs.
+
+We make the assumption that getting a ride, even after driving to a high-demand area is better than the outside option, but the outside option is preferrable to to getting a ride with $\frac12$ probability, $1-\varepsilon \ge \sigma \ge \frac12-\varepsilon$.
+
+\begin{prop}
+An optimal information design is given by:
+\[
+	\sigma(0,\text{go}) = 
+\]
+and 
+\[
+	\sigma (1, \textbf{go}) = 
+\]
+\end{prop}
+Conditional on the good state, this minimizes the correlation of 
+
+
+\begin{proof}
+	
+\end{proof}
+
 
 \begin{figure}
 \centering

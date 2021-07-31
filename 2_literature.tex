@@ -27,6 +27,8 @@ As an intervention into the market that reduces the appearance of the wild goose
 
 In case of the wild goose chase, other interventions than price interventions are possible: The reduced demand comes from the fact that drivers cannot coordinate on when to be on the street. Matching-based interventions (allowing drivers only to log in during certain times) or informational interventions (targeting some drivers during some time with information) might help mitigate the Wild Goose Chase. We consider aspects of an information-based remedy in \autoref{chap:infodesign}.
 
+Other models such as a recent contribution \cite{Zhou2020} solve the optimal dynamic matching problem with prices. \cite{Zhou2020} proposes a queuing model to optimize platforms' profit while considering price-sensitive customers and earning-sensitive drivers. Each driver has a reservation earning rate based on his outside option and the driver will provide services only if earning rate exceeds the reserved value.
+
 \subsection{Information}
 Information on demand or, equivalently, recommendations on where to move, were shown in a focus group study \cite{Ashkrof2020} as important points of improvement for TNCs from the side of ride-hailing drivers.
 
@@ -39,9 +41,6 @@ However, except for in routing games (\cite{Wu2021,Systems2021,Wu2017}), informa
 \cite{Ong2021} combines information design with pricing by incentivizing drivers to move to a new area with a monetary incentive. Closest to our contribution, \cite{Chaudhari_Byers_Terzi_2018} show that a carefully designed repositioning strategy can change earnings by a factor of 2, which we also find in our analysis.
 
 
-
-
-
 \section{Related Topics in Platform Design}
 In our contributions we also relate to other topics of platform competition which we do not further target. One is platform competition \emph{for the market}, another is asymmetric treatment of participants \emph{in the market}.
 
@@ -50,25 +49,9 @@ Our first contribution relates to a literature on platform competition, in parti
 
 Multi-homing has attracted much attention in ridesharing \cite{Liu2018}, regarding the effect on questions of pricing when both sides multi-home \cite{Bakos2018a}, the welfare effects of multi-homing \cite{Belleflamme2019}, how multi-homing can happen dynamically \cite{Biglaiser2019} for platform migration, and questions on participants that cannot multi-home \cite{Jeitschko2014}.
 
- assume exogenous models of \cite{castillo2017surge} or do not model multi-homing decisions \cite{liu2017impact}.
+An important assumption in these models is that drivers have expectations over both expected demand in all areas. Our analysis about information design plays into this environment by investigating how different information in the market can help market participants. \cite{LiuTat-HowTehJulianWrightJunjieZhou2019}.
 
-
-We view information design mostly for a monopolistic setting and view it for future work. Views about third-party integration are orthogonal to our question \cite{Zhou2020}.
-
-
-
- 
- Other papers assume that in moments where agents join a platform, they have exact knowledge of the surplus that is gained and the prices that both sides receive \cite{liu2019multihoming}.
-
-\cite{Wang_Yang_2019} offers a comprehensive review on the ride-hailing system including demand, supply and platform perspectives. 
-Driver behavior is modeled differently in the ride-hailing literature.   
-Regarding operations and optimizations for ride-hailing platforms, e.g., driver-customer matching, idle vehicle rebalancing and vehicle routing, drivers are assumed to follow the instructions of platforms~(\cite{Bertsimas_Jaillet_Martin_2019, Alonso-Mora_2017, Braverman_Dai_Liu_Ying_2019, Wen_Zhao_Jaillet_2017}).
-
-Simple driver behavior models are proposed in the pricing literature of the ride-hailing system. 
-\cite{Bai_So_Tang_Chen_Wang_2019} propose a queuing model to optimize platforms' profit while considering price-sensitive customers and earning-sensitive drivers. Each driver has a reservation earning rate based on his outside option and the driver will provide services only if earning rate exceeds the reserved value.
-\cite{Taylor_2018} evaluate the impact of uncertainty in passenger delay sensitivity and driver independence on platforms' optimal per-service price and wage. Each driver has an opportunity cost and the driver will participate in the platform when having non-negative expected utility.
-
-
+\cite{Wang_Yang_2019} offers a comprehensive review on the ride-hailing system including demand, supply and platform perspectives. (\cite{Bertsimas_Jaillet_Martin_2019, Alonso-Mora_2017, Braverman_Dai_Liu_Ying_2019, Wen_Zhao_Jaillet_2017}).
 
 
 

@@ -1,24 +1,12 @@
 \chapter{The Value of Information}\label{chap:chengdu}
-After evidence from a survey, we move on with evidence derived from platform data. 
-
-we give evidence here on the value of information to drivers. This is aligned with claims by companies that offer information services to drivers such as Gridwise or the Mileage tracker.
-%TODO: Incorporate this structure
-%- Description of data
-%- Order Data
-%- Winner Paper
-%- Earnings Table
-%
-%- Estimation
-%- Linear model
-%- Regression Equation
-%- Model Fit
+In this section, we give evidence here on the value of information to drivers. This is aligned with claims by companies that offer information services to drivers such as Gridwise or the Mileage tracker that additional information can increase earnings. We first describe data that we use in \autoref{sec:chengdudata}, we then estimate driver earnings in optimized repositioning in \autoref{sec:chengduestimation} and close with comparing this with driver income under non-optimized behavior and discuss our results in \autoref{sec:chengdudiscussion}.
 %
 %- Conclusions
 %- Significant effect of driver repositioning
 %- No modelling of crowding out
 %- There might be better repositionings
 %- In any case: If few drivers are targeted, earnings increase by a lot.
-\section{Description of Data}
+\section{Description of Data}\label{sec:chengdudata}
 The DiDi KDD Challenge 2020, sponsored by DiDi Yuching, consisted of two challenge. An order dispatch challenge, and a driver repositioning challenge. We will work with data and submissions of the latter.
 
 \subsection{Annotated Order Data}
@@ -56,13 +44,21 @@ The earnings table contains, dependent of the time of the day, a base price $b_t
 \begin{equation}
 	e_t = s_t(b_t + l_t L + d_t D).\label{eq:earnings}
 \end{equation}
-\begin{table}
-\begin{tabular}{cccc}
-%TODO: Fill out table.
+\begin{table}[]
+\begin{tabular}{lllll}
+\toprule
+              & Base Price & Price/km & Price/min &  \\
+\midrule
+$22:00-7:00$  & 12.40      & 2.70     & 0.48      &  \\
+$7:00-10:00$  & 12.40      & 2.55     & 0.48      &  \\
+$10:00-16:00$ & 11.40      & 1.95     & 0.42      &  \\
+$16:00-19:00$ & 12.40      & 2.33     & 0.48      &  \\
+$19:00-22:00$ & 11.40      & 1.95     & 0.42      & \\
+\bottomrule
 \end{tabular}
 \caption{Earnings for express drivers}
 \end{table}
-\section{Estimation}
+\section{Estimation}\label{sec:chengduestimation}
 We assume in the following that reward units are a constant multiple of RMB. The underlying assumption is the following proposition.
 
 \begin{prop}
@@ -76,48 +72,44 @@ We assume that a negligible fraction of rides uses a surge price and therefore e
 \]
 Our estimate of time is the times given in the order data. We use the Google Maps API to estimate distance in driving. The estimation results are presented in \autoref{tab:rewardunits}. We find highly significant and consistent estimates on the coefficients for distance and duration.
 
-
-\begin{table}
-\centering
-\begin{tabular}{lclc}
-\toprule
-\textbf{Dep. Variable:}    &  reward\_units   & \textbf{  R-squared:         } &     0.887   \\
-\textbf{Model:}            &       OLS        & \textbf{  Adj. R-squared:    } &     0.887   \\
-\textbf{Method:}           &  Least Squares   & \textbf{  F-statistic:       } &     1380.   \\
-\textbf{Date:}             & Sun, 18 Jul 2021 & \textbf{  Prob (F-statistic):} &     0.00    \\
-\textbf{Time:}             &     14:45:52     & \textbf{  Log-Likelihood:    } &   -2998.9   \\
-\textbf{No. Observations:} &        2000      & \textbf{  AIC:               } &     6004.   \\
-\textbf{Df Residuals:}     &        1997      & \textbf{  BIC:               } &     6021.   \\
-\textbf{Df Model:}         &           2      & \textbf{                     } &             \\
-\bottomrule
-\end{tabular}
-\begin{tabular}{lcccccc}
-                   & \textbf{coef} & \textbf{std err} & \textbf{z} & \textbf{P$> |$z$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
-\midrule
-\textbf{Intercept} &      -0.1664  &        0.077     &    -2.155  &         0.031        &       -0.318    &       -0.015     \\
-\textbf{distance}  &       0.3191  &        0.021     &    15.449  &         0.000        &        0.279    &        0.360     \\
-\textbf{duration}  &       0.0635  &        0.007     &     9.645  &         0.000        &        0.051    &        0.076     \\
-\bottomrule
+\begin{table}[!htbp] \centering
+\begin{tabular}{@{\extracolsep{5pt}}lcc}
+\\[-1.8ex]\hline
+\hline \\[-1.8ex]
+& \multicolumn{2}{c}{\textit{Dependent variable:}} \
+\cr \cline{2-3}
+\\[-1.8ex] & (1) & (2) \\
+\hline \\[-1.8ex]
+ Intercept & 0.751$^{***}$ & 0.703$^{***}$ \\
+  & (0.042) & (0.041) \\
+ distance & 0.290$^{***}$ & 0.317$^{***}$ \\
+  & (0.014) & (0.076) \\
+ duration & 0.065$^{***}$ & 0.116$^{***}$ \\
+  & (0.005) & (0.041) \\
+ hour[T.22-7]:distance & & -0.043$^{}$ \\
+  & & (0.077) \\
+ hour[T.22-7]:duration & & -0.050$^{}$ \\
+  & & (0.041) \\
+ hour[T.7-10]:distance & & -0.067$^{}$ \\
+  & & (0.089) \\
+ hour[T.7-10]:duration & & -0.037$^{}$ \\
+  & & (0.043) \\
+ hour[T.offhour]:distance & & 0.003$^{}$ \\
+  & & (0.078) \\
+ hour[T.offhour]:duration & & -0.057$^{}$ \\
+  & & (0.041) \\
+\hline \\[-1.8ex]
+ Observations & 3,997 & 3,997 \\
+ $R^2$ & 0.883 & 0.894 \\
+ Adjusted $R^2$ & 0.883 & 0.894 \\
+ Residual Std. Error & 0.971(df = 3994) & 0.927(df = 3988)  \\
+ F Statistic & 2911.757$^{***}$ (df = 2.0; 3994.0) & 1074.804$^{***}$ (df = 8.0; 3988.0) \\
+\hline
+\hline \\[-1.8ex]
+\textit{Note:} & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
 \end{tabular}
 \end{table}
-\subsection{Checks}
 
-\begin{table}
-\centering
-\begin{tabular}{lcccccc}
-                                     & \textbf{coef} & \textbf{std err} & \textbf{z} & \textbf{P$> |$z$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
-\midrule
-\textbf{Intercept}                   &      -0.2569  &        0.262     &    -0.981  &         0.326        &       -0.770    &        0.256     \\
-\textbf{rush\_hour[T.True]}          &       0.0095  &        0.320     &     0.030  &         0.976        &       -0.618    &        0.637     \\
-\textbf{distance}                    &       0.3318  &        0.047     &     7.113  &         0.000        &        0.240    &        0.423     \\
-\textbf{rush\_hour[T.True]:distance} &      -0.0292  &        0.048     &    -0.602  &         0.547        &       -0.124    &        0.066     \\
-\textbf{duration}                    &       0.0653  &        0.011     &     6.170  &         0.000        &        0.045    &        0.086     \\
-\textbf{rush\_hour[T.True]:duration} &       0.0028  &        0.014     &     0.200  &         0.841        &       -0.024    &        0.030     \\
-\bottomrule
-\end{tabular}
-\caption{OLS Regression Results}\label{tab:rewardunits}
-\end{table}
 
-\subsection{Model Fit}
 We observe that much of the variance can be explained by our model ($R^2 = 0.887$)
-\section{Discussion}
+\section{Discussion}\label{sec:chengdudiscussion}
