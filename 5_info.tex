@@ -1,18 +1,9 @@
 \chapter{Information Design}\label{chap:infodesign}
 \begin{quote}
-	The information design problem has
-a literal interpretation: there
-really is an information designer (or mediator, or sender) who can commit to provide extra information to players to serve her own
-interests. While the commitment assumption may be problematic in many settings, it provides a useful benchmark.--\cite{Bergemann}
+	The information design problem has a literal interpretation: there really is an information designer (or mediator, or sender) who can commit to provide extra information to players to serve her own interests. While the commitment assumption may be problematic in many settings, it provides a useful benchmark.\flushright{---\cite{Bergemann}}
 \end{quote}
 
-%TODO: Incorporate this structure
-%- Model 
-%- Atomic Game
-%- Cheap Talk Stage
-%- BCE stage
-%- Private vs. public information
-%
+
 %- Analysis
 %
 %- Private Information
@@ -164,10 +155,40 @@ $\sigma$&$\sigma$\\
 \end{figure}
 We assume that the drivers best respond to the messages sent by the platform. In our first model, we assume that the platform can commit to a particular mapping from demand to messages, in the latter they cannot.
 
+\begin{table}
+\begin{subtable}{.49\linewidth}
+\centering
+\begin{tabular}{ccc}
+\toprule
+$\theta = 0$ & go & not go \\
+\midrule
+go & $\sigma$ & x \\
+not go & x & 0\\
+\bottomrule
+\end{tabular}
+\end{subtable}
+\begin{subtable}{.49\linewidth}
+\centering
+\begin{tabular}{ccc}
+\toprule
+$\theta = 0$ & go & not go \\
+\midrule
+go & $\sigma$ & x \\
+not go & x & 0\\
+\bottomrule
+\end{tabular}
+\end{subtable}
+\caption{Optimal Information Design}	
+\end{table}
+
 
 \subsection{Information Design}\label{subsec:infodesign}
 We first study a setting where the platform can commit to an arbitrary mapping of demand $\theta$ to tuple of messages $(m_1(\theta), m_2 (\theta))$. Before stating our theorem, we go into public or private information.
 \subsection{Public and Private Messages}
+We call an information design 
+
+
+
 Some information is shown to all drivers, while other is shown only to a few drivers. We call messages \emph{public} if $m_1(\theta) = m_2(\theta)$ for $\theta = 0,1$ and all other messages \emph{private}. As is well-known in the information design literature \cite{Bergemann}, the game that agents play is one of \emph{strategic substitutes}, andp private information will increase the total utility for all players. In our case, this means, drivers. Our theorem adds that this is also the optimal choice of messages for the platform.
 \begin{thm}\label{thm:commitment}
 All maximizers of platform revenue are $m_1(\theta) = \theta$, 

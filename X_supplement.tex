@@ -1,6 +1,5 @@
 \chapter{Supplemental Material}
 \section{Driver Survey}\label{appendix:survey}
-
 \subsection{Basic Driving Information and Behavior}
 
 \begin{enumerate}
@@ -310,15 +309,9 @@
     \item What is your kelurahan?
 \end{enumerate}
 
-\section{Complete Earnings Information for DiDi Platform Drivers}
-In this brief appendix, we reproduce payment information for platform drivers and describes more concretely the decision environment for the Reinforcement Learning agent in the KDD 2020 Callenge. 
-
-\subsection{Payment Information for Drivers}
-
-
-\subsection{Decision Environment for Reinforcement Learning Agents}
+\section{Decision Environment for Reinforcement Learning Agents}
 Here, we describe the observed state and action for the Reinforcement Learning challenge, compare \cite{Xie2020}. 
-\subsubsection{Dispatch Challenge}
+\subsection{Dispatch Challenge}
 The order dispatch, a matching challenge, observes as an observable state for each incoming order and each idle driver in the platform during each time step
 \begin{itemize}
 	\item The estimated distance from driver to order
@@ -329,5 +322,5 @@ The order dispatch, a matching challenge, observes as an observable state for ea
 The state of the system contains all driver's locations at each time.
 
 
-\subsubsection{Repositioning Challenge}
+\subsection{Repositioning Challenge}
 The repositioning challenge observes as an observable state for each driver in a \emph{targeted} group of drivers that is idle for at least 5 minutes and each time step at which repositioning is possible a coarse location of the driver on a coarse grid of Chengdu.

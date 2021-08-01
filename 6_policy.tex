@@ -1,97 +1,55 @@
-\chapter{Conclusion and Policy Implications}\label{chap:policy}
-
-%TODO: Incorporate this structure
-%
-%
-%- the equity challenge
-%- make decisions on who gets which information
-%- will become more important in the future
-%- Important difference: Trip level vs. aggregate level
-%
-%
-%- engineering challenges
-%- Information design in code as a transparency problem
-%- Determination of fair information design in comparison to fair matching
-%- Data Access to platforms
-
-
-
-
-This thesis studied the relevance and optimal design of information provided to ridesourcing drivers. \autoref{chap:jakarta} showed that besides earnings maximization, drivers also take into account cultural and infromational considerations in their labor supply decisions. \autoref{chap:chengdu} showed that there are high potential earnings gains from additional information. We then went on to study commitment and privacy of messages as two challenges. In this last chapter, we consider three stakeholder groups, platforms, regulators and transportation engineers with policy recommendations and additional complications arising out of this work. 
+\chapter{Conclusion and Policy Recommendations}\label{chap:policy}
+\begin{quote}
+	There’s fragmentation and a lack of transparency of information on what’s happening in real time and what’s going to happen. We’re connecting bread crumbs across data areas. ---Ryan Green, as quoted in \cite{Weed2019}
+\end{quote}
+This thesis studied the relevance and optimal design of information provided to ridesourcing drivers. Our argument proceeded in three steps: \autoref{chap:jakarta} showed that besides earnings maximization, drivers also take into account cultural and informational considerations in their labor supply decisions. \autoref{chap:chengdu} showed that there are high potential earnings gains from additional information. We then went on to study commitment and privacy of messages as two challenges. \autoref{chap:infodesign} observed the importance of commitment and asymmetry in information design for platform drivers. In this final chapter, we consider three stakeholder groups, platforms, regulators and transportation engineers and list open problems and recommendations.
 \section{The Commitment Challenge for Platforms}
-We observed in \autoref{chap:infodesign} that the limited commitment of the platform to providing different platform can lead to drivers ignoring information.
+We observed in \autoref{chap:infodesign} that the limited commitment of the platform can lead to, in equilibrium, significantly less information being transmitted. More specifically, the platform's commitment problem arises when it has high demand and, in an optimal information design, would show the information of high demand only to a subset of drivers. Without commitment, the platform has incentives to reveal this information to more drivers, which would maximize the likelihood that a rider is picked up.
 
+As the software underlying a TNC does mostly not change, the platform has an opportunity to commit to a particular information provision. To reach this goal, however, it is crucial that drivers \emph{understand} that the platform committed to such an information provision. There are several ways to give such asymmetry, which we outline next, in order of decreasing application inside of the TNC.
+\subsection{Designating some drivers as informationally advantaged}
+If some drivers are openly designated as having access to additional information compared to other drivers, commitment to only giving some drivers information is transparent. Whether linked to performance on the platform, the main problem of a lack of commitment as identified in \autoref{chap:infodesign} disappear if the drivers being recommended to go to a high-demand area do not foresee the congestion in this place.
 
-\subsection{Employing some drivers}
-In the current payment model for drivers, the TNC does not have incentives to limit the amount of drivers in a particular area. While
-
-\subsection{Mechanical Commitment and Explainability}
- - reputation
- - audits
- - 
+\subsection{Audits}
+A second opportunity for platforms is to achieve their commitment is via audits and reporting from trustworthy sources. This could come, for example, via a publication of the numbers of drivers informed of high demand in an area.
 \subsection{External Aggregators}
- - Others can take this burden.
- 
- \subsection{Bundling with Payments}
+A third approach is what is partly already, done by third parties aggregating and providing information such as Gridwise or the Surge app. In contrast to a TNC, these comapnies do, depending on their business model, not have incentives that are misaligned with platform drivers and can hence provide optimal information: The question becomes one of optimal cooperative, and not strategic information provision.
 
+We highlight that in our approach to the problem, coupling of information and pricing is not considered, and other ways of costly signalling for a TNC might be available. This is outside of the scope of this thesis.
 
+\section{Challenges for Transportation Regulators}
+As a prerequisite for understanding the regulation of information provision, understanding the informational needs of a regulator is crucial. 
 
+The access to information from TNCs is regulated under different legislation. New York, as an example, gives their regulator, the Taxi and Limousine Commission (TLC) particularly strong powers: Section 2302 of the Charter of New York City empowers them to information access to origin-destination pairs and fares. In its executive practice, the TLC publishes data on fares for all transportation platforms and has access to disaggregated data. Importantly in the case of New York City, the strong regulator comes from times pre-dating TNCs, and stems from taxi regulation.
 
+Other cities have different regulations, and might face platform emigration when . The case of Austin, Texas showed that potential regulation might lead to platforms abandoning some areas, compare \cite{Zeitlin2019}. 
 
-\section{Challenges for Transportation Regulators in the Case of New York}
-In this section, we first outline the information access of different regulators and then put into perspective potential interventions 
+The informational demands on regulating information to drivers are much more stringent than regulation on earnings or matching: In addition to trips and fares, regulators need to get access to which information is shown to drivers, and, hence, insights into the platform.
 
+We propose, in three steps, a path forward that would allow regulation on information to drivers.
+\subsection{Information Provision as a Preliminary Agreement}\label{subsec:}
+A first important step is that, without changing the payment structure of TNCs (no payment in phase 2), to re-classify information on demand and offers to drivers as parts of a negotiation between the platform and riders. In this environment, while there was no contract negotiated between the platform and the driver, there is an opportunity for drivers to challenge the accuracy of the information provision by platforms.
 
-When implementing this work into policy, much of
+\subsection{Using Existing Information Access to Track Information Provision to Drivers}
+This classification would also allow existing regulators to require more information by platforms. It could then be that the list of drivers receiving information, the \emph{targeted} drivers, are shown along with the information. Not only can this allow for fairness estimation, but also allow regulators to oversee TNCs' reactions to demands in dense or less dense parts of urban spaces.
 
-The case of Austin, Texas, sheds a light on limited possibilities of regulattion. Uber and Lyft left the market, others came in. 
-
-New York has it in its City Charter. But other urban areas might benefit as well (Chicago, Boston, LA, Houston, Dallas)
-
-An important aspect in the special situation of New York is its history of taxi regulation.
-
-Federal solution to data access might be possible. 
-
-There are good demand models, and even TLC could get a good demand model (personal communication with James Parrott). 
-
-Matching driver demand possible, but has never happened in times of taxi. 
-
-Congestion charge report might lead to more movement in NY.
-
-These are other externalities, but might help.
-
-Important question on how elastic labor supply from drivers really is.
-
-
-%Right after completion of trip, NYC did this.
-%
-%TLC: Had experience working on this. Can regulate taxis + incomes of drivers. Charter based provision. comparable data.
-%
-%Chicago and other cities: No requirements.
-%
-%Many inefficiencies in Uber: Minimize what they pay drivers. Flood the market with drivers.
-%
-%Economically inefficient. Drivers are paid badly.
-%%
-%
-%Q: Do the platforms know what is needed?
-%
-%Good demand models on their own.
-%%
-%TLC talking about that. COVID has been different. Before pandemic there was a lot concern about congestion. State has a lot of congestion pricing. How to more efficiently utilize street space -- freight movement.
-%
-%NYC DOT: Congestion charge report.
-%
-%Uber and Lyft are regulated at the local model. 
-%
-%State level is more politically compliant....California---
-%
-%New York city charter...
-
-
+\subsection{Trip Level vs. Aggregate Level Fairness}
+Having access to data on information provision to platform drivers would also allow to test one of the main challenges outlined in our theoretical analysis in \autoref{chap:infodesign}: Asymmetry. Regulators would be able to regulate on which drivers get which demand information at which time.
 
 \section{Challenges for Transportation Engineers}
-The above two challenges give interesting challenges for transportation engineers.
+The challenges for TNCs and regulators come with challenges for transportation engineers with which we conclude this thesis. 
+\subsection{Dynamic Rebalancing with Information Constraints}
+Taking into account the effect of information on the reaction of drivers gives rise to challenges for operations researchers. As we saw in \autoref{chap:infodesign}, information provision to drivers needs to balance the expected congestion caused by information with the likelihood of satisfying a demand for rides. Varying between revenue maximizing and welfare maximizing platforms might give the problem additional nuance. 
 
+\subsection{Information Design as Market Design}
+A second problem for engineers is the integration of information into pricing. Effectively targeting information to drivers with payments incentivizing them might be more efficient. Much of the driver's behavior, however, relies on their expectation on how many other drivers follow a recommendation by the platform, which needs to be managed. The use of combined pricing-information designs might help the functioning of transportation systems.
 
-\subsection{Managing Fairness in Information Provision}
+\subsection{Data Specifications}
+To allow for effective regulation, the development of exchange formats for information provision is a relevant challenge. As origin-destination pairs, fares and time stamps for matching and pricing,  recommendations to drivers, when operationalized in a data specification that allows for research and optimization helps the future development of systems.
+
+Depending on the development and ownership structure of Autonomous Vehicles (AVs), such specifications and information designs might even be relevant in a future without (human) drivers. Coordinating the demand of AVs through proper information design requires effective data specifications to track them.
+
+\subsection{Operationalizing Fairness in Information Provision}
+A last challenge is the operationalization of fairness in information provision and their interlinkage with pricing and matching. Describing the expected earnings for different groups based on their differential treatment by a TNC algorithm, be it in terms of information, matching, or pricing can allow for more equitable distribution of surplus, and might affect other externalities of TNCs as given through congestion.
+
+We leave these challenges for the future, in hope of informed and efficient urban mobility environments. 

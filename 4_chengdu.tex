@@ -1,21 +1,16 @@
 \chapter{The Value of Information}\label{chap:chengdu}
-In this section, we give evidence here on the value of information to drivers. This is aligned with claims by companies that offer information services to drivers such as Gridwise or the Mileage tracker that additional information can increase earnings. We first describe data that we use in \autoref{sec:chengdudata}, we then estimate driver earnings in optimized repositioning in \autoref{sec:chengduestimation} and close with comparing this with driver income under non-optimized behavior and discuss our results in \autoref{sec:chengdudiscussion}.
-%
-%- Conclusions
-%- Significant effect of driver repositioning
-%- No modelling of crowding out
-%- There might be better repositionings
-%- In any case: If few drivers are targeted, earnings increase by a lot.
+While the last chapter investigated stated aspects of relevance for labor supply, this section shows the \emph{potential} effects of platform design beyond matching and pricing.
+
+In this chapter, we give evidence that demand information can significantly increase earnings for platform drivers. The earnings gains are aligned with claims by companies that offer information services to drivers such as Gridwise or the Mileage tracker that additional information can increase earnings. We first describe data that we use in \autoref{sec:chengdudata}, we then estimate driver earnings in optimized repositioning in \autoref{sec:chengduestimation} and close with comparing this with driver income under non-optimized behavior and discuss our results in \autoref{sec:chengdudiscussion}.
 \section{Description of Data}\label{sec:chengdudata}
 The DiDi KDD Challenge 2020, sponsored by DiDi Yuching, consisted of two challenge. An order dispatch challenge, and a driver repositioning challenge. We will work with data and submissions of the latter.
 
 \subsection{Annotated Order Data}
-We are given for November 2016 about %TODO: Find out concrete number
-10 Million orders. An order consists of an origin-destination pair, a timestamp for beginning and end, an identifier for the driver that took the order, and a number of \emph{reward units}. As the data is not publicly available anymore, we are unable to provide replication data for the following analysis.
+We use a dataset of 14,131,874 orders dispatched in Chengdu, China, in November 2016. An order consists of an origin-destination pair, a timestamp for beginning and end, an identifier for the driver that took the order, and a number of \emph{reward units}. As the data is not publicly available anymore, we are unable to provide replication data for the following analysis.
 
 A main challenge in our analysis is to recover the number of reward units corresponding to a RMB. Given our estimation below, we can transfer repositioning scores to monetary values, which gives us an estimate of 
 
-\subsection{Reinforcement Learning Challenge Leaderboard}
+\subsection{Evaluation in Paper}
 The KDD 2020 reinforcement learning challenge solves an optimal repositioning problem together with an optimal order dispatch problem. The problem is a partial observed semi-Markov Decision Process. In Reinforcement Learning language, which we review in \autoref{app:math}.
 
 The system's observable state for the order dispatch algorithm consists of a list of orders to be dispatched at each point in time. This means a list of origin-destination pairs for orders, and for each driver timestamps of \emph{estimated} order pickup and arrival times, as well as the distance for the driver. The reinforcement learning algorithm's actions are matchings of drivers to orders, the challenge does not consider carpooling. Orders need to be dispatched within two seconds, otherwise they are lost. (We specify the complete environment in \autoref{app:kdd}. As part of the state transitions, there is estimated data for cancellation probabilities when sending a driver to pick up orders from different locations.
@@ -113,3 +108,11 @@ Our estimate of time is the times given in the order data. We use the Google Map
 
 We observe that much of the variance can be explained by our model ($R^2 = 0.887$)
 \section{Discussion}\label{sec:chengdudiscussion}
+
+%
+%- Conclusions
+%- Significant effect of driver repositioning
+%- No modelling of crowding out
+%- There might be better repositionings
+%- In any case: If few drivers are targeted, earnings increase by a lot.
+
