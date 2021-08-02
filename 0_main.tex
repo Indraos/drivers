@@ -5,6 +5,7 @@
 \usepackage{amsthm}
 \usepackage{tikz}
 \usepackage{makecell}
+\usepackage{pifont}
 \usepackage{nicefrac}
 \usepackage{datetime2}
 \usepackage{sgame}
@@ -14,12 +15,16 @@
 \usepackage{subcaption}
 \usepackage[inline]{enumitem}
 \usepackage{booktabs}
-\usepackage[backend=biber]{biblatex}
+\usepackage[backend=biber,
+style=alphabetic,
+citestyle=authoryear
+]{biblatex}
 \usetikzlibrary{positioning,calc,matrix}
 \newtheorem{thm}{Theorem}[chapter]
 \newtheorem{cor}[thm]{Theorem}
 \newtheorem{prop}[thm]{Proposition}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\cmark}{\ding{51}}
 \graphicspath{{/Users/andreashaupt/Downloads/X_MasterThesis/tex/Figures/}}
 \bibliography{/Users/andreashaupt/Documents/Writing/Bibliography/library}
 
@@ -29,6 +34,7 @@
 \usepackage[T1]{fontenc}
 \pagestyle{plain}
 \begin{document}
+\input{todos}\clearpage
 \title{Information Design for Platform Drivers}
 \author{Andreas Haupt}
 \prevdegrees{B.Sc., University of Bonn (2014) \\
@@ -47,7 +53,6 @@ B.Sc., University of Frankfurt (2019)}
 \input{01_abstract}
 \cleardoublepage
 \input{02_acknowledgements}
-
 \pagestyle{plain}
 \tableofcontents
 \newpage
@@ -61,7 +66,7 @@ B.Sc., University of Frankfurt (2019)}
 \input{5_info}
 \input{6_policy}
 \appendix
-\input{X2_survey}
+\input{X_supplement}
 \begin{singlespace}
 \printbibliography
 \end{singlespace}

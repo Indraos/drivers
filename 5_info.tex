@@ -35,13 +35,15 @@
 
 In this section, we study \emph{pure} information design for platform drivers. We refer to it as \emph{pure} as we study information provision while keeping the driver payoffs fixed. We show several limitations for the platform: Drivers, in equilibrium, ignore information if it cannot commit to not giving a particular driver some part of the information, it gives
 \section{Model}
-We consider a finite set of agents $i = 1, 2, \dots, n$. There are states of the world $\Theta$. We consider a basic game given by, for each player $i$ an action set $A_i$ and a utility function
+We present here, in a self-contained manner, a model of information design with an \emph{omniscient} designer. Omniscience refers to the TNC, the information designer, having strictly more information than all drivers, the agents in our game. This assumption is not without loss, as existing challenges to improve Operations Research models, e.g., in last-mile logistics, compare \cite{Last2007}, show. Our results, qualitatively do not differ, as we show in appendix \autoref{chap:infodesignapp}.
+
+ We consider a finite set of agents $i = 1, 2, \dots, n$. There are states of the world $\Theta$. We consider a basic game given by, for each player $i$ an action set $A_i$ and a utility function
 \[
 u_i \colon A \times \Theta \to \R
 \]
 where $A = A_1 \times \cdots \times A_n$ and a prior distribution $F \in \Delta(\Theta)$ which we assume has full support. We assume that this prior is shared by all players and the designer. $((A_i, u_i)_{i=1,2,\dots, n}, F)$ hence specifies a standard game. 
 
-Our main model will consider $n=2$ drivers that simultaneously decide whether to drive to a part of a city (\enquote{go}) or to follow other business on or off the platform (\enquote{not go}), i.e. $A_1 = A_2 = \{\text{go}, \text{not go}\}$. The utility functions are given by the tables in \autoref{fig:twodrivers}. We assume that the prior is that with probability $p \in [0,1]$ demand is realized. This corresponds to an outside option for the drivers of $\sigma$ and a cost to go to the high-demand area of $\varepsilon$.
+Our main model will consider $n=2$ drivers that simultaneously decide whether to drive to a part of a city (\enquote{go}) or to follow other business on or off the platform (\enquote{not go}), i.e. $A_1 = A_2 = \{\text{go}, \text{not go}\}$. The utility functions are given by the tables in \autoref{fig:twodrivers}. We assume that the prior is that with probability $l \in [0,1]$ demand is realized. This corresponds to an outside option for the drivers of $\sigma$ and a cost to go to the high-demand area of $\varepsilon$.
 
 We call this game the \emph{basic game}. 
 
@@ -51,52 +53,20 @@ v \colon A \times \Theta \to \R.
 \] 
 In our example, the information designer is a TNC. It will be an information designer, and will get utility $1$ if at least one driver is able to satisfy demand, otherwise a utility of $0$. 
 
-The platform can design an \emph{information structure} $S$ consisting of, for each agent $i = 1, 2, \dots, n$ a type space $T_i$ and a type distribution $\pi \colon \Theta \to T$, where $T = T_1 \times \cdots \times T_n$, $S = (T, \pi)$.
+The platform can designs an \emph{information structure} for each driver. This can be an arbitrary piece of information that drivers take into account. Under the assumption that the platform is omniscient and can commit to a rule, a \emph{revelation}-type argument can be used to simplify the design space: For any messages that the designer sends to agents, given that the platform knows the best response of the agents to this information, the platform can recommend the agents their best responses. Hence, any information structure has a particularly simple structure as \emph{recommendations}
+\[
+\sigma \colon \Theta \mapsto A.
+\]
+For a formal statement and a proof of the revelation function, see  \cite{Baskerville2011}.
 
-The timeline of this model is
-\begin{itemize}
-	\item The information designer commits to an information structure $S = (T, \pi)$.
+The timeline of the model is:
+\begin{enumerate}
+	\item The information designer commits to an information structure $S = \sigma$.
 	\item The state of the world is realized.
-	\item The players each receive their types $\pi_i(\theta)$.
+	\item The players each receive their action recommendations $\sigma_i(\theta)$.
 	\item The agents select their action $a_i$.
 	\item The payoffs are realized.
-\end{itemize}
-A revelation principle, which we do not prove, is that the messages that the information designer/platform needs to send, can be restricted to action recommendations
-\[
-	\sigma\colon\Theta \times T \to \Delta(A)
-\]
-such that the agent, given their information on $\Theta$ as given by their information, would like to follow the recommendation. For a full statement and proof of the revelation principle, compare \cite{Baskerville2011}. Mathematically, the remaining constraint of \emph{obedience} can be written as
-\[
-	\sum_{a_i, t_i, \theta} u_i((a_i, a_{-i}); \theta)\sigma((a_i,a_{-i}) | (t_i, t_{-i}), \theta) \pi((t_i, t_{-i}) | \theta) F(\theta) \ge \sum_{a_i, t_i, \theta} u_i((a_i', a_{-i}); \theta)\sigma((a_i,a_{-i}) | (t_i, t_{-i}), \theta) \pi((t_i, t_{-i}) | \theta) F(\theta)
-\]
-for any $a_i' \in A_i$. A profile of decision rules $\sigma$ that is obedient is called a Bayes Correlated Equilibrium (BCE). In our example of $n=2$ drivers, obedience means that it is optimal for drivers to follow the recommendation of the platform. 
-
-The platform's utility is given by 
-\begin{equation}
-V(\sigma) = \sum_{a,t,\theta} v(a,\theta) \sigma(a| t, \theta) \pi(t | \theta) F(\theta).\label{eq:value}
-\end{equation}
-The platform's optimal information design is maximizing \eqref{eq:value} among all BCEs.
-
-We make the assumption that getting a ride, even after driving to a high-demand area is better than the outside option, but the outside option is preferrable to to getting a ride with $\frac12$ probability, $1-\varepsilon \ge \sigma \ge \frac12-\varepsilon$.
-
-\begin{prop}
-An optimal information design is given by:
-\[
-	\sigma(0,\text{go}) = 
-\]
-and 
-\[
-	\sigma (1, \textbf{go}) = 
-\]
-\end{prop}
-Conditional on the good state, this minimizes the correlation of 
-
-
-\begin{proof}
-	
-\end{proof}
-
-
+\end{enumerate}
 \begin{figure}
 \centering
 \begin{subfigure}{.48\linewidth}
@@ -153,8 +123,22 @@ $\sigma$&$\sigma$\\
 \end{subfigure}
 \caption{Payoff Matrix for the two-driver game.}\label{fig:twodrivers}
 \end{figure}
-We assume that the drivers best respond to the messages sent by the platform. In our first model, we assume that the platform can commit to a particular mapping from demand to messages, in the latter they cannot.
+ Mathematically, the remaining constraint of \emph{obedience} can be written as
+\begin{multline*}
+	\sum_{a_i, \theta} u_i((a_i, a_{-i}); \theta)\sigma((a_i,a_{-i}) | \theta) F(\theta) \\\ge \sum_{a_i, \theta} u_i((a_i', a_{-i}); \theta)\sigma((a_i,a_{-i}) | \theta) F(\theta)
+\end{multline*}
+for any $a_i' \in A_i$. A profile of decision rules $\sigma$ that is obedient is called a Bayes Correlated Equilibrium (BCE). $\sigma$ is a coarse correlated equilibrium if an agent that updates their information on the state of the world given their recommendation does not want to deviate from said recommendation.
 
+The platform's maximizes a utility function
+\begin{equation}
+V(\sigma) = \sum_{a,t,\theta} v(a,\theta) \sigma(a| \theta) F(\theta).\label{eq:value}
+\end{equation}
+The platform's optimal information design is maximizing \eqref{eq:value} among all BCEs $\sigma$.
+
+We make the assumption that getting a ride, even after driving to a high-demand area is better than the outside option, but the outside option is preferrable to to getting a ride with $\frac12$ probability, $1-\varepsilon \ge \sigma \ge \frac12-\varepsilon$.
+
+\begin{prop}
+An optimal information design for the platform is given by
 \begin{table}
 \begin{subtable}{.49\linewidth}
 \centering
@@ -180,22 +164,53 @@ not go & x & 0\\
 \end{subtable}
 \caption{Optimal Information Design}	
 \end{table}
+\end{prop}
+Conditional on the good state, this minimizes the correlation of 
 
 
-\subsection{Information Design}\label{subsec:infodesign}
-We first study a setting where the platform can commit to an arbitrary mapping of demand $\theta$ to tuple of messages $(m_1(\theta), m_2 (\theta))$. Before stating our theorem, we go into public or private information.
-\subsection{Public and Private Messages}
-We call an information design 
+\begin{proof}
+	Observe that every recommendation $\sigma$ that is not symmetric, i.e. $\sigma_1(\theta) \not \stackrel{d}{=} \sigma_2(\theta)$ for some $\theta$, because the game is symmetric, also $\sigma'$, $\sigma_2' = \sigma_1$, $\sigma_1' = \sigma_2$, is a Bayes-correlated equilibrium, and so is $\nicefrac{(\sigma + \sigma')}{2}$. Therefore, an optimal information design for the platform can be chosen to be symmetric. 
+	
+	Hence, the optimal information structure is characterized by the probability the probability $r_\theta$ that both drivers drive to the area and by $p_\theta$, the probability that each of the drivers goes. This gives rise to the information structure in \autoref{tab:paraminfodesign}. 
+	\begin{table}
+\begin{subtable}{.49\linewidth}
+\centering
+\begin{tabular}{ccc}
+\toprule
+$\theta = 0$ & go & not go \\
+\midrule
+go & $r_0$ & $p_0 - r_0$\\
+not go & $p_0 - r_0$ & $1 + r_0 - 2p_0$\\
+\bottomrule
+\end{tabular}
+\end{subtable}
+\begin{subtable}{.49\linewidth}
+\centering
+\begin{tabular}{ccc}
+\toprule
+$\theta = 0$ & go & not go \\
+\midrule
+go & $r_1$ & $p_1 - r_1$\\
+not go & $p_1 - r_1$ & $1 + r_1 - 2p_1$\\
+\bottomrule
+\end{tabular}
+\end{subtable}
+\caption{Parameterized Information Design}\label{tab:paraminfodesign}	
+\end{table}
+For all entried in \autoref{tab:paraminfodesign} to be probabilities, it needs to hold that 
+\[
+	\max\{0,2p_\theta - 1\} \le r_\theta \le p_\theta
+\]
+For $a = \text{go}$, the obedience constraint is
+\[
+lp_0\sigma 
+\]
+The platform would like to minimize the probability that the demand cannot be met, i.e. minimize $l(1-p_B)^2 + (1-l)(1-p_B)^2$.
+\end{proof}
 
 
-
-Some information is shown to all drivers, while other is shown only to a few drivers. We call messages \emph{public} if $m_1(\theta) = m_2(\theta)$ for $\theta = 0,1$ and all other messages \emph{private}. As is well-known in the information design literature \cite{Bergemann}, the game that agents play is one of \emph{strategic substitutes}, andp private information will increase the total utility for all players. In our case, this means, drivers. Our theorem adds that this is also the optimal choice of messages for the platform.
-\begin{thm}\label{thm:commitment}
-All maximizers of platform revenue are $m_1(\theta) = \theta$, 
-\end{thm}
-
-
-\subsection{Cheap Talk}\label{subsec:cheaptalk}
+\subsection{Cheap Talk}\label{subsec:infodesign}
+We compare this to a model in which the platform cannot commit ot 
 In cheap talk, the platform discloses some information to a driver, which, given the update, updates their behavior. More concretely, there is an abstract set of \emph{messages} $m \in \mathcal M$ that the platform can send. The players receive the message and play optimally. In particular, the timeline of the game is:
 \begin{enumerate}
 	\item The demand $\theta$ at the area is realized.
@@ -203,6 +218,39 @@ In cheap talk, the platform discloses some information to a driver, which, given
 	\item The drivers decide to drive or not drive to the area.
 	\end{enumerate}
 We solve for perfect Bayesian (signalling) equilibria of this game.
+
+\subsection{Public and Private}
+We call a recommendation $\sigma$ public if $\sigma_1 (\theta)\stackrel{\text{a.s.}}{=} \sigma_2 (\theta)$ for $\theta = 0,1$,i.e. if both agents receive the same information. In this case, this leads to the following result:
+\begin{prop}
+The optimal information design when the platform is restricted to public messages is given in \autoref{tab:optpublic}	
+\end{prop}
+	\begin{table}
+\begin{subtable}{.49\linewidth}
+\centering
+\begin{tabular}{ccc}
+\toprule
+$\theta = 0$ & go & not go \\
+\midrule
+go & $r_0$ & $p_0 - r_0$\\
+not go & $p_0 - r_0$ & $1 + r_0 - 2p_0$\\
+\bottomrule
+\end{tabular}
+\end{subtable}
+\begin{subtable}{.49\linewidth}
+\centering
+\begin{tabular}{ccc}
+\toprule
+$\theta = 0$ & go & not go \\
+\midrule
+go & $r_1$ & $p_1 - r_1$\\
+not go & $p_1 - r_1$ & $1 + r_1 - 2p_1$\\
+\bottomrule
+\end{tabular}
+\end{subtable}
+\caption{Parameterized Information Design}\label{tab:paraminfodesign}	
+\end{table}
+
+\subsection{Results}\label{subsec:cheaptalk}
 \begin{thm}\label{thm:commitment}
 	In the cheap talk model, Perfect Bayesian equilibria have the following form:
 	\begin{enumerate}
