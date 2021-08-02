@@ -39,34 +39,6 @@ While we provide several facets of information design for platform drivers, we l
 Our analysis is also not restricted to human drivers. Depending on Autonomous Vehicle governance structure, conflicts of interest and congestion might have even more pronounced effect in a future of automated mobility. Our investigations, in particular in \autoref{chap:chengdu} and \autoref{chap:infodesign} directly feed also into this design question: Information Design has potentially large effects, and needs to be allocated thoughtfully to avoid congestion.
 \section{Background}
 
-- Drivers and Gig work
-- What are other examples
-- Driving is characterized by particularly strong informational advantage
-- Other points: Full time, flexibility
-
-- Therefore interventions: 
-- Earnings
-- Prop. 22
-- UK Supreme Court
-- No interventions into informational environment
-
-- Informational and Payment environment for drivers
-- Apps
-- Periods
-- Multi-Homing
-- Demand information in app
-- Third parties
-
-- Impact of informational structure for regulation.
-%TODO: Fix that only period 3 is paid.
-%TODO: Fix full-time on the platform
-%\cite{Diao2021} study the effect of ridesharing on urban mobility and find that ridesharing intensifies urban challenges. 
-%
-%Preference for flexibility is documented in several studies, also empirical of nature. \cite{Angrist2017a} uses a choice experiment with virtual license plates for gig workers. Gig workers give up significant payments for working with . See also \cite{KeithChen2019}. 
-
-
-
-
 Platform drivers take an increasingly important role in urban mobility (\autoref{subsec:pdandurbanmobility}), and have special characteristics compared to other forms of gig work (\autoref{subsec:pdandgigwork}). Some of these characteristics have led to more prominent regulatory interventions into platform driving (\autoref{subsec:pdregulation}) compared to other parts of the gig economy. Regulators have for the biggest part not intervened into information provision to drivers, and drivers find themselves in an informational environment between their platforms' apps and third parties aggregating information (\autoref{subsec:pdinfo}).
 \subsection{Platform Drivers and Urban Mobility}\label{subsec:pdandurbanmobility}
 As of 2021, services provided by platform drivers now make up $\nicefrac{1}{3}$ of the global taxi market \cite{Bryan2019a}. With the rise of the first TNCs about 15 years ago, the rapid changes leaves many of the design dimensions of this market open.
@@ -109,11 +81,10 @@ The informational environment becomes relevant for drivers through the payment s
 \caption{Nomenclature for different periods in coverage for Uber as presented in \cite{Inc.2021}.}	\label{fig:uberperiods}
 \end{figure}
 
-Phase 0 corresponds to times off the platform. 
+Period 0 corresponds to times off the platform. Period 1 corresponds to times where the driver is online but idle. In these times, drivers are not paid.
 
+Phase 2 is after the acceptance of an order, and \emph{en route} to fulfilling the order. Except for flat payments for cancellations, drivers are not paid for this part of their trips as well. 
 
-Phase 1 corresponds to times where the driver is online but idle. In these times, the driver is not sent ride requests and does (except for bonus payments for repositioning) not earn money.
+Period 3 refers to the time between the acceptance of a ride request and the pickup of the passenger, and the ride, respectively. In these phases, riders are paid according to a combination of base prices, minutes and distance driven, as well as surge multipliers.
 
-Phases 2 and 3 refer to the time between the acceptance of a ride request and the pickup of the passenger, and the ride, respectively. In these phases, riders are paid.
-
-The goal of this thesis is to establish the relevance of providing drivers with demand information, and will only significantly affect driver behavior in phase 1. Drivers that are picking up or driving a rider have a clear task, and even a contract for their work. The main question we ask in our theoretical section will be when the platform can transmit any information that will not be ignored.
+The goal of this thesis is to establish the relevance of providing drivers with demand information, and will only significantly affect driver behavior in phase 1. Drivers that are picking up or driving a rider have a clear task, and even a contract for their work. The main question we ask in our theoretical section will be under which the platform can shape behavior outside times where a contract between the platform driver and the customer is in place.

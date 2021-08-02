@@ -40,12 +40,13 @@ The earnings table contains, dependent of the time of the day, a base price $b_t
 	e_t = s_t(b_t + l_t L + d_t D).\label{eq:earnings}
 \end{equation}
 \begin{table}[]
+\centering
 \begin{tabular}{lllll}
 \toprule
-              & Base Price & Price/km & Price/min &  \\
+ & Base Price & Price/km & Price/min &  \\
 \midrule
-$22:00-7:00$  & 12.40      & 2.70     & 0.48      &  \\
-$7:00-10:00$  & 12.40      & 2.55     & 0.48      &  \\
+$22:00-07:00$  & 12.40      & 2.70     & 0.48      &  \\
+$07:00-10:00$  & 12.40      & 2.55     & 0.48      &  \\
 $10:00-16:00$ & 11.40      & 1.95     & 0.42      &  \\
 $16:00-19:00$ & 12.40      & 2.33     & 0.48      &  \\
 $19:00-22:00$ & 11.40      & 1.95     & 0.42      & \\
@@ -102,15 +103,10 @@ Our estimate of time is the times given in the order data. We use the Google Map
 \textit{Note:} & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
 \end{tabular}
 \end{table}
-
-
-We observe that much of the variance can be explained by our model ($R^2 = 0.887$)
+We observe that much of the variance can be explained by our model ($R^2 = 0.887$). As another sanity check, we infer the distribution of surge prices throughout the day. 
 \section{Discussion}\label{sec:chengdudiscussion}
+We see that optimal driver repositioning has a significant effect on driver earnings if only a few drivers are treated to this additional information. 
 
-%
-%- Conclusions
-%- Significant effect of driver repositioning
-%- No modelling of crowding out
-%- There might be better repositionings
-%- In any case: If few drivers are targeted, earnings increase by a lot.
+In a model with more drivers being treated, informed drivers might \emph{crowd out} each other, and earnings differential might be smaller.
 
+This does not mean that information design is not possible to improve platforms, but that, for each trip, only a subset of drivers may be informed of it. This robust property is one of our findings in the next chapter.

@@ -1,99 +1,92 @@
 \chapter{Related Work}\label{chap:literature}
 \begin{quote}
-	[Traffic participants] make route choices based on their private beliefs about the state and
-other populations’ signals. The question then arises, \enquote{How does the presence of asymmetric and incomplete information affect the travelers’ equilibrium route choices and
-costs?}---\cite{Wu2021}
+	[Traffic participants] make route choices based on their private beliefs about the state and other populations’ signals. The question then arises, \enquote{How does the presence of asymmetric and incomplete information affect the [participants]’ equilibrium route choices and costs?}---\cite{Wu2021}
 \end{quote}
-
-We show that in our model, an informational Braess' paradox arises, which is distinct from existing notions of an informational Braess' paradox.\footnote{\cite{Wu2021} studies this in road networks; Manish Raghavan studies it for several classification technologies \cite{Kleinberg}.}
-
-Information can add another dimension to driver behavior. We start with the three pillars of platform design---matching, pricing and information provision---in \autoref{sec:platformdesignreview}.  In \autoref{sec:asymmcomp} we review two more topics that our contributions relate to: asymmetric treatment in platform design and platform competition. We situate our methodology in existing work in \autoref{sec:methods}.
+We contribute to several different literatures regarding platform design and to methodologies in Natural Language Processing, work with platform-produced data, and mechanism design. We start with the three pillars of platform design---matching, pricing and information provision---in \autoref{sec:platformdesignreview}.  In \autoref{sec:asymmcomp} we review two more topics that our contributions relate to: asymmetric treatment in platform design and platform competition. We situate our methodology in existing work in \autoref{sec:methods}.
 
 
 \section{Platform Design}\label{sec:platformdesignreview}
-Besides pricing and matching, we highlight a third component of platform design: information provision. As an example of why information provision might not be appreciated in platform design in mobility, questions about information design cannot be expressed in unified models of ridesourcing \cite{Guo}. We give references for the three tiers of matching, and relate them to information design questions.
+We introduced the three pillars of platform design in \autoref{chap:intro}. Here, we name recent contributions, and relate them to information design for platform drivers.
 \subsection{Matching}
-Dynamic matching is solved in the operations literature. Recent contributions to this literature are \cite{Aouad2020} and \cite{Vazifeh2018}. 
+Dynamic matching is a topic in the operations research. Recent contributions to this literature are \cite{Aouad2020} and \cite{Vazifeh2018}. 
 
-A main goal in matching is \emph{dynamic rebalancing}. Dynamic rebalancing refers to moving vehicles to other parts of an urban area when the (expected) demand in this area is higher. Order dispatch algorithms with foresight optimize for this objective \cite{Xu2018}, and other transportation modes have similar challenges, compare for bikesharing \cite{Barabonkov2020}. 
+A main goal in matching is \emph{dynamic rebalancing}. Dynamic rebalancing refers to moving vehicles to other parts of an urban area when the (expected) demand in this area is higher. Order dispatch algorithms with foresight optimize for this objective \cite{Xu2018}, and other transportation modes have similar challenges, e.g., for bikesharing, \cite{Barabonkov2020}. 
 
-From a perspective of information design for platforms, drivers and the platform have a shared objective to have many drivers in high-demand areas, and dynamic rebalancing goals could be reached via information provision. We explore design considerations in \autoref{chap:infodesign}. 
+Participation decisions by drivers determine the group of drivers to be matched. While drivers and platform have a shared objective to have many drivers in high-demand areas, they diverge on how many: While platforms do not have incentives to avoid congestion, as we show in  \autoref{chap:infodesign} drivers do, as oversupply in areas leads to reduced earnings. Hence, taking into account information provision to drivers has the potential to improve matching.
 
 \subsection{Pricing}
-A second literature is on pricing. 
+A second important dimension of platform design is pricing. 
 
-An important phenomenon related to pricing is the \emph{Wild Goose Chase} \cite{Castillo2017a}. A wild goose chase refers to the reduction of supply when supply is low and prices are constant. Drivers go on the platform, and are matched to a free rider which might be very far away. The expectation of a long pickup distance reduces earnings expectations and further reduces driver labor supply. \cite{Xu2020} shows in high generality that this insight holds.
+The move towards non-uniform prices across time is associated to the  \emph{Wild Goose Chase} \cite{Castillo2017a}. A wild goose chase in ride-sourcing---the same phenomenon is, however, possible for other platform drivers as well---refers to the reduction of supply when supply is low and prices are constant through a vicious cycle of expectations: Given that supply is very low, drivers will quickly be thinly spread throughout an urban area. This means that the average pickup time for drivers is increased and driver earnings decreased. This leads to an expectation of drivers to earn less, and hence to even lower supply. \cite{Xu2020} shows that for many matching technologies and demand structures, Wild Goose Chases occur.
 
-As an intervention into the market that reduces the appearance of the wild goose chase, \emph{surge prices}, i.e. higher prices when the market is high are proposed \cite{Castillo2017a}. Further research has considered the effects of surge prices in a spatial setting \cite{Lee2019}.
+As an intervention into the market that reduces the appearance of the wild goose chase, \emph{surge prices}, i.e. higher prices when demand is high are proposed \cite{Castillo2017a}. Further research has considered the effects of surge prices in a spatial setting \cite{Lee2019}.
 
-In case of the wild goose chase, other interventions than price interventions are possible: The reduced demand comes from the fact that drivers cannot coordinate on when to be on the street. Matching-based interventions (allowing drivers only to log in during certain times) or informational interventions (targeting some drivers during some time with information) might help mitigate the Wild Goose Chase. We consider aspects of an information-based remedy in \autoref{chap:infodesign}.
+In case of the Wild Goose Chase, other interventions than price interventions are possible: The reduced demand comes from the fact that drivers cannot coordinate on when to be on the street. Quota-based interventions (allowing drivers only to log in during certain times) or informational interventions (targeting some drivers during some time with information) might help mitigate the Wild Goose Chase. We consider aspects of an information-based remedy in \autoref{chap:infodesign}.
 
 Other models such as a recent contribution \cite{Zhou2020} solve the optimal dynamic matching problem with prices. \cite{Zhou2020} proposes a queuing model to optimize platforms' profit while considering price-sensitive customers and earning-sensitive drivers. Each driver has a reservation earning rate based on his outside option and the driver will provide services only if earning rate exceeds the reserved value.
 
 \subsection{Information}
-Information on demand or, equivalently, recommendations on where to move, were shown in a focus group study \cite{Ashkrof2020} as important points of improvement for TNCs from the side of ride-hailing drivers.
+Information on demand or recommendations on where to reposition to maximize earnings were shown in a focus group study with platform drivers \cite{Ashkrof2020} as important points of improvement for TNCs.
 
-However, except for in routing games (\cite{Wu2021,Systems2021,Wu2017}), information design for transportation systems has not taken an important role. \cite{Wu2021} studies a model of competing information providers, which are restricted to public information from one of several information sources. As they, we find inefficiencies arising from only providing public information to drivers. While their model is on congestion levels on roads, we consider demand for platform drivers.
+However, except for in routing games (\cite{Wu2021,Systems2021,Wu2017}), information design for transportation systems has, to the best of our knowledge, not been thoroughly studied. \cite{Wu2021} studies a model of competing information providers, which are restricted to public information from one of several information sources. As they, we find inefficiencies arising from only providing public information to drivers. While their model is on congestion levels on roads, we consider congestion in areas for drivers. Added to their study, we highlight the incentive mismatch between platform and drivers, which shape many of the incentives.
 
-\cite{Shapiro2018} shows using data from New York City that the highest welfare gains arise in less dense areas. In particular, these are areas where the informational component of platform design is particularly important. We complement this point in \autoref{chap:infodesign} by showing that also driver's surplus can change with sufficient allocated information.
+\cite{Shapiro2018} shows using data from New York City that the highest welfare gains from ride-sourcing arise in less dense areas. In particular, these are areas where the informational component of platform design is particularly important, as drivers need to take into account idle repositioning time when accepting an order. We complement this point in \autoref{chap:infodesign} by showing that, besides platform and rider gains, also driver earnings are positively affected by information such as the one provided by platform apps.
 
-\cite{Jullien2019} study a two-sided market in which groups are uncertain about the joining decision of the other side of the market and how this helps efficiency. We do not model demand for platform drivers as strategic, and only consider platform drivers, but do so in a setting with a spatial structure.
+\cite{Jullien2019} study a two-sided market in which groups are uncertain about the joining decision of the other side of the market and how allocating information helps efficiency. We do not model demand for platform drivers as strategic, and only consider platform drivers. In this sense, our model studied in \autoref{chap:infodesign} can be seen as a special case of the model in \cite{Jullien2011}. 
 
-\cite{Ong2021} combines information design with pricing by incentivizing drivers to move to a new area with a monetary incentive. Closest to our contribution, \cite{Chaudhari_Byers_Terzi_2018} show that a carefully designed repositioning strategy can change earnings by a factor of 2, which we also find in our analysis.
-
+\cite{Ong2021} combines information design with pricing by incentivizing drivers to move to a new area with a monetary incentive. Closest to our contribution, \cite{Chaudhari_Byers_Terzi_2018} show that a carefully designed repositioning strategy can change earnings by a factor of 2, comparable to the number we find in \autoref{chap:chengdu}.
 
 \section{Related Topics in Platform Design}
-In our contributions we also relate to other topics of platform competition which we do not further target. One is platform competition \emph{for the market}, another is asymmetric treatment of participants \emph{in the market}.
+In our contributions we also relate to other topics of platform competition. One is platform competition \emph{for the market}, another is asymmetric treatment of participants \emph{in the market}.
 
 \subsection{Competition}
 Our first contribution relates to a literature on platform competition, in particular whether one side of the market multi-homes, i.e. participates in more than one platform at a time.
 
 Multi-homing has attracted much attention in ridesharing \cite{Liu2018}, regarding the effect on questions of pricing when both sides multi-home \cite{Bakos2018a}, the welfare effects of multi-homing \cite{Belleflamme2019}, how multi-homing can happen dynamically \cite{Biglaiser2019} for platform migration, and questions on participants that cannot multi-home \cite{Jeitschko2014}.
 
-An important assumption in these models is that drivers have expectations over both expected demand in all areas. Our analysis about information design plays into this environment by investigating how different information in the market can help market participants. \cite{LiuTat-HowTehJulianWrightJunjieZhou2019}.
+An important assumption in these models is that drivers have expectations on expected demand in all areas. Our analysis about information design plays into this environment by investigating how different information structures in the market affect market participants \cite{LiuTat-HowTehJulianWrightJunjieZhou2019}.
 
 \subsection{Asymmetric Treatment}
 Asymmetry to leverage network externalities are well-known in the network externality literature. \cite{Jullien2011} studies a model of a one-sided platform with network externalities, and devises a pricing strategy that, at limited cost, incentivizes agents to stay on the platform. \cite{Fainmesser2016,Fainmesser2020} study this with players that have some heterogeneity.
 
+More generally, asymmetry of information being welfare optimal in a class of games called \emph{submodular games}, also called \emph{games of strategic substitutes}, is well known \cite{Bergemann}. Our results in \autoref{chap:infodesign} cannot be directly deduced from these insights, as we model incentive mismatch between platform and drivers.
+
 \section{Methodology}
-\subsection{Estimation of Implicit Costs of Certain Behaviors}
-Our estimate of implicit costs of multi-homing in \autoref{chap:jakarta} estimates a preference for a particular platform. This relates to a literature on such information preferences in the case of flexibility. 
+\subsection{Labor Supply of Drivers}
+Our estimate of implicit costs of multi-homing in \autoref{chap:jakarta} estimates preferences relating to driver labor supply. A classical study on taxi driver labor supply in New York City \cite{Camerer1997} estimated negative labor supply elasticities of cab drivers, i.e. drivers working less hours on days with higher earnings. They concluded that drivers work until they reach fixed earnings, and not for a particular number of hours. This behavior is in contrast with pure earnings maximization, as drivers that have high demand and can (to some extent) flexibly work, would work more on days with high demand and less on days with low demand. Other studies contest this claim \cite{Farber2015,Fehr2007,Farber2005}.
 
-We also relate in our quantitative evidence to cab driver labor supply in New York City \cite{Camerer1997}, which reported negative labor supply elasticities of cab drivers, i.e. drivers working less hours on days with higher earnings. This study led to an introduction of reference-dependence into labor supply, and was followed up by studies replicating the claim \cite{Farber2015,Fehr2007,Farber2005}.
-
-Our analysis merely points towards other factors besides earnings maximization and does not yield conclusive evidence on what these factors are.
+Our analysis, as \cite{Camerer1997} shows driver behavior that is incompatible with earnings maximization.
 
 \subsection{Gig Worker Data}
-Studies on algorithmic behavior need data on the contracts being intermediated. In the case of platforms, this has been challenging due to the complex pricing, matching and information environment, and that riders are not informed on payments to drivers and \emph{vice versa}. 
+Studies on platform behavior need data on the contracts that the platform intermediates. Getting such information has been challenging due to the complex pricing, matching and information environment, and that riders are not informed on payments to drivers and \emph{vice versa}. 
 
-Information on contracts comes from primarily three sources, two of which have been exploited for research purposes: cooperation with TNCs, automatic extraction of data through APIs, and gathering data from drivers.
+Information on contracts comes from primarily three sources, two of which have been exploited for research purposes: cooperations with platforms, automatic extraction of data through APIs or app simulators, and data collection from drivers.
 
-Several studies in collaboration with TNCs have found large-scale behaviors. Among others, \cite{Sun2019a} on the labor supply of platform drivers, \cite{Cook2020a} for the gender pay gap, and \cite{Athey2019} for a comparison in driving quality of TNCs and Taxis. The literature on market structure or regulation-relevant topics is limited with the use of TNC datasets. 
+Several studies in collaboration with TNCs have found large-scale behaviors. Among others, \cite{Sun2019a} on the labor supply of platform drivers, \cite{Cook2020a} for the gender pay gap, and \cite{Athey2019} for a comparison in driving quality of TNCs and Taxis. The literature on market structure or regulation-relevant topics is limited with the use of TNC datasets given contractual restrictions on platform data use by researchers. 
 
- Other studies use APIs to query for prices, such as \cite{Rosaia2020} who evaluates counterfactual regulations in an urban mobility market in New York City and \cite{Shapiro2018} who estimates the consumer surplus difference from TNCs compared to Lyft in the same market. \cite{Chen2015a} uses large-scale simulated apps to elicit prices and estimate pricing fairness questions.
+ Other studies use APIs to query for prices, such as \cite{Rosaia2020} which evaluates counterfactual regulations in an urban mobility market in New York City and \cite{Shapiro2018} which estimates the consumer surplus difference from TNCs compared to Lyft in the same market. \cite{Chen2015a} uses large-scale simulated apps to elicit prices and estimate pricing fairness questions.
  
- A third approach is given by pooling information from drivers. Driver Information Exchange, an initiative in the UK, gathers driver information via Data Subject Access requests under a data protection regulation. Similarly, MIT Media Lab initiative gigbox collects information from drivers. The companies Gridwise and Mileage Tracker gather driver data and give drivers information on pay-related information.
+ A third approach is given by eliciting information from drivers. Worker Information Exchange \cite{Marcus2010}, an initiative in the UK, gathers driver information via Data Subject Access requests under a data protection regulation. Similarly, MIT Media Lab initiative gigbox \cite{Calacci2021} collects information from drivers. The companies Gridwise and Surge gather driver data and give drivers information on pay-related information.
  
- Our study falls between the first and the second category. We use openly available platform data, which we combine with other publicly available data to answer a question relating to driver pay.
+ Our study falls between the first and the second category. We use openly (for researchers) available platform data, which we combine with other publicly available data to answer a question relating to driver earnings.
  
 \subsection{Mechanism and Information Design}
-Mechanism design is an old field that studies the creation of strategic environments to reach social goals. Pioneered by Leonid Hurwicz and students of Kenneth Arrow, Eric S. Masking and Roger B. Myerson, the study led to designs of economic environments from school assignment to transplantation matching, internet ad auctions. For an introduction to the topic, see, for example, Eric Maskin's Nobel lecture \cite{maskin2007}. 
+Mechanism design is an field that studies the creation of strategic environments to reach social goals. Pioneered by Leonid Hurwicz and students of Kenneth Arrow, Eric S. Masking and Roger B. Myerson, mechanism designs where used for assigning students to schools, donors to receivers of organs, matching medical residents to hospitals, and internet ad auctions. For an introduction to the topic, see, for example, Eric Maskin's Nobel Memorial Prize lecture \cite{maskin2007}. 
 
-A main goal of mechanism design is the design of allocation rules of scarce resources by a central entity when information is dispersed among different strategic actors. In a ridesharing context, for example, the exact preferences of drivers for when and where to work are not known to a platform.
+A main goal of mechanism design is the design of allocation rules of scarce resources by a central entity when information is dispersed among different strategic actors. In the context of platform drivers, for example, the exact preferences of drivers for when and where to work are not known to the platform.
 
-Mechanism design is the design of rules. A main assumption is that the designer, in our case the platform, can \emph{commit} to a particular action it will take given actions by strategic actors, in our application drivers. 
+Mechanism design is the design of rules. A main assumption is that the designer, in our case the platform, can \emph{commit} to a particular action it will take given information given a state of the world such as demand on a platform.
 
-The commitment assumption is often violated, as we argue in particular in the context of platform drivers. We therefore compare the model to a setting where the platform cannot commit to some course of action in a model of \emph{cheap talk}, which was introduced in \cite{Crawford2016}. Our exact setup is influenced by the multi-receiver version \cite{Goltsman2011}.
+The commitment assumption is often violated, also, as we argue, in  context of platform drivers. We compare the model to a setting where the platform cannot commit to some course of action in a model of \emph{cheap talk}, which was introduced in \cite{Crawford2016}. Our exact setup is influenced by the multi-receiver version \cite{Goltsman2011}.
 
-While mechanism design pertains to the allocation of scarce resources, another allocation problem arises when a platform has particularly strong informational effects and can control information flows. 
+While mechanism design pertains to the allocation of scarce resources, another allocation problem arises when information shapes behavior and a platform can control information flows. 
 
-Information is not scarce---it is freely replicable---but can affect the allocation of scarce resources: If every driver in an urban space is informed that a particular spot has many orders, congestion or the absence of drivers, depending on luck and the reaction of the riders to the information. Information needs to be carefully designed, in particular when strategic interaction between different agents are present.
+Information is not scarce---it is freely replicable---but can affect the allocation of scarce resources: If every driver in an urban space is informed that a particular part of the city experiences high demand, congestion, too many drivers in this area, might be the result of providing drivers with this information. In particular in situations where congestion might be a result of information, information needs to be carefully designed.
 
 Information design is mechanism design where the good being allocated is information. To make precise what information means, the timeline of interaction is important. \emph{Before} some state of the world---such as the distribution of demand for drivers during rush hour---is realized, the mechanism designer, the platform in the platform driver case, commits which driver to reveal which part of this state. This commitment is important for the outcome, as drivers can make their decisions knowing, for example, which information other driver do \emph{not} have. 
 
-Information design started with single agent environments without strategic interactions \cite{Kamenica2019a}. In later works, the full information design with strategic interactions was developed,  \cite{Bergemann,Bergemann2020a}. We will use for a relevant part of our analysis a model in \cite{Bergemann}. 
+Information design started with single agent environments without strategic interactions \cite{Kamenica2019a}, building on notions of communication revelation principle \cite{Society2018}. In later works, the full information design with strategic interactions was developed,  \cite{Bergemann,Bergemann2020a}. We will use for a relevant part of our analysis a model in \cite{Bergemann}. 
 
-With strategic interactions, \cite{Haven2013} study a strategic environments with several players and derive as a robust insight that in games where, if more players decide to participate, this increases the incentive for others to participate (so-called \emph{games of strategic complementarity}), asymmetric information can be optimal. 
+With strategic interactions, \cite{Haven2013} study a strategic environments with several players and derive as a robust insight that in games where, if more players decide to participate, this increases the incentive for others to participate (so-called \emph{games of strategic substitutes} or \emph{submodular games}), asymmetric information improves welfare compared to public information. 
 
-The real platform's problem is more complicated than merely providing information. The platform faces the challenge to co-design matching, pricing and information provision. The literature on mechanism-information co-design is limited, to simple downstream games \cite{Dworczak2020}, and an integration of matching, pricing and information is an exciting area for future research.
-
+The real platforms' problems are more complicated than merely providing information. The platform faces the challenge to co-design matching, pricing and information provision. The literature on mechanism-information co-design is limited, to simple downstream games \cite{Dworczak2020}, and an integration of matching, pricing and information is an exciting area for future work.
