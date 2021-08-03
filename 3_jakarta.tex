@@ -1,16 +1,16 @@
 \chapter{Platform Driver Labor Supply Beyond Earnings Maximization}\label{chap:jakarta}
-\epigraph{Since Uber’s introduction in 2009, ridesharing platforms like Uber, Didi, Grab, and Lyft have radically transformed the taxi and limo industry. These services, which allow consumers to order a car to their location via a smartphone application, now control roughly 1/3 of the international taxi market. In other words, a ridesharing firm acts as a platform matching drivers to riders and setting the pricing terms between them.}{\cite{Bryan2019a}}
+\epigraph{Most of the elasticities we estimate are nega- tive; drivers tend to quit early on high wage days and to drive longer hours on low wage days.}{\cite{Camerer1997}}
  This chapter analyzes data from a survey in Jakarta and shows that drivers do not purely maximize their earnings in their labor supply choices. In an analysis of free-text answers, we highlight understanding of the app and information as important determinants of driver behavior.
 \section{Survey}
 Our data comes from a survey conducted in spring 2021 in Jakarta, Indonesia.
 \subsection{Sample}
-Participants were asked to complete an online survey hosted on Qualtrics. 846 complete survey responses were submitted. We excluded from the analysis drivers that stated more than 16 hours of work per day and stated earnings smaller than 10,000 Rp or larger than 2,000,000 Rp. The survey participants were recruited through social media (platform driver WhatsApp groups).
+Participants were asked to complete an online survey hosted on Qualtrics. 846 complete survey responses were submitted. We excluded from the analysis drivers that stated more than 16 hours of work per day and stated earnings smaller than 10,000 Rp or larger than 2,000,000 Rp. The survey participants were recruited through social media via two platform driver \emph{WhatsApp} groups.
 
-Figure \ref{fig:age} shows the age distribution of participants, where around 50\% of drivers are within the age group of 30 to 39. About 97.5\% of drivers who participated in the survey identify as male, 2.5\% identify as female. Around 97\% are motorbike delivery drivers, the other 3\% drive cars.
+\autoref{fig:age} shows the age distribution of participants. Note that about 50\% of drivers are within the age group of 30 to 39. About 97.5\% of drivers who participated in the survey identify as male, 2.5\% identify as female. Around 97\% are motorbike delivery drivers, the other 3\% drive cars.
 
-Three major ride-hailing companies operate in Jakarta: Grab, GoJek and Shopee. While Grab and GoJek are incumbents in this market, Shoppee entered the market only in 2021. Around 94\% of drivers work for the incumbents Grab or GoJek. In our sample of drivers, only 12\% of the respondents in the survey are multi-homers. See \autoref{tab:agedistr}
- \begin{table}[!ht]
- \centering
+Three major ride-hailing companies operate in Jakarta: Grab, GoJek and Shopee. While Grab and GoJek are incumbents in this market, Shoppee entered the market only in 2021. Around 94\% of drivers work for the incumbents Grab or GoJek. In our sample of drivers, only 12\% of the respondents in the survey are multi-homers. 
+\begin{table}[!ht]
+\centering
  \begin{tabular}{cccccc}	
  \toprule
  Age Group&<20&20-29&30-39&40-49&>50\\
@@ -48,9 +48,7 @@ A first observation we make is that there is significant correlation between exp
      \label{tab:opang}
  \end{table}
 
- Finally, we turn our attention to the results of our regression models exploring the impact of being a part-time ride-hailing driver on drivers' multihoming behaviors.
- 
- From the model results shown in Table \ref{tab:part-timer}, we find that part-time ride-hailing drivers are more likely to multi-home in our sample. However, it is a less significant predictor of multihoming behaviors compared to other variables above.
+ There is also a weak effect of (self-reported) part-time status and multi-homing, \autoref{tab:part-timer}. Part-time ride-hailing drivers are more likely to multi-home than full-time drivers. 
 
  \begin{table}
  \centering
@@ -68,7 +66,7 @@ A first observation we make is that there is significant correlation between exp
      \label{tab:part-timer}
  \end{table}
  \section{Earnings for Different Platforms}
-Our main finding concerns the earnings for different platforms. Figure \ref{fig:hourly_salary} displays the hourly salary distribution of all survey respondents in Jakarta. The median respondent makes less than 20,000 Rp (approximately \$ 1.40) per hour, which is significantly less than the average hourly salary 120,175 Rp (approximately \$ 8.4) in Jakarta~\cite{Jakarta_hourly_salary}. This stands even when controlling for sociodemographics.
+Our main finding concerns the earnings for different platforms. Figure \ref{fig:hourly_salary} displays the hourly salary distribution of all survey respondents in Jakarta. The median respondent makes less than 20,000 Rp (approximately \$ 1.40) per hour, which is significantly less than the average hourly salary 120,175 Rp (approximately \$ 8.4) in Jakarta~\cite{Jakarta_hourly_salary}.
 
  \begin{figure}
      \centering
@@ -77,7 +75,7 @@ Our main finding concerns the earnings for different platforms. Figure \ref{fig:
      \label{fig:hourly_salary}
  \end{figure}
 
-We estimate, among all single-homers, the correlation between working for GoJek and hourly salary in Table \ref{tab:hourly_salary}. We exclude the 3\% of non-motorcycle drivers due to their significantly different earnings. The model results suggest that GoJek drivers earn significantly less than drivers from other platforms, 11,000 Rp (approximately \$ 0.77) less per hour. While a weak effect ($R^2 = 0.002$), it is significant.
+We estimate, among all single-homers, the correlation between working for GoJek and hourly salary in Table \ref{tab:hourly_salary}. We exclude the 3\% of non-motorcycle drivers due to their significantly different earnings. The model results suggest that GoJek drivers earn significantly less than drivers from other platforms, 11,000 Rp (approximately \$ 0.77) less per hour. While a weak effect ($R^2 = 0.002$), the difference is highly significant. This result stands also when controlling for age, gender, school diploma, and previous experience as a taxi driver.
 
 \begin{table}[!htbp] \centering
 \begin{tabular}{@{\extracolsep{5pt}}lcc}
@@ -85,50 +83,50 @@ We estimate, among all single-homers, the correlation between working for GoJek 
 \hline \\[-1.8ex]
 & \multicolumn{2}{c}{\textit{Dependent variable:}} \
 \cr \cline{2-3}
-\\[-1.8ex] & (1) & (2) \\
+\\[-1.8ex] & without controls & with controls \\
 \hline \\[-1.8ex]
  Intercept & 30713.817$^{***}$ & 32141.158$^{***}$ \\
   & (1927.295) & (10919.276) \\
- Q54[T.30 - 39] & & 599.344$^{}$ \\
-  & & (9829.024) \\
- Q54[T.30 - 39]:Q58[T.Yes] & & -1459.150$^{}$ \\
-  & & (10215.505) \\
- Q54[T.40 - 49] & & -5300.705$^{}$ \\
-  & & (13705.572) \\
- Q54[T.40 - 49]:Q58[T.Yes] & & 2649.267$^{}$ \\
-  & & (14135.068) \\
- Q54[T.Above 50] & & -655.081$^{}$ \\
-  & & (17545.153) \\
- Q54[T.Above 50]:Q58[T.Yes] & & 3628.347$^{}$ \\
-  & & (19003.614) \\
- Q54[T.Under 20] & & -689.077$^{}$ \\
-  & & (4819.356) \\
- Q54[T.Under 20]:Q58[T.Yes] & & -689.077$^{}$ \\
-  & & (4819.356) \\
- Q55[T.Male] & & -5813.134$^{}$ \\
-  & & (4617.561) \\
- Q55[T.Prefer not to answer] & & -17966.204$^{}$ \\
-  & & (19349.857) \\
- Q57[T.None of the above] & & -0.000$^{}$ \\
-  & & (0.000) \\
- Q57[T.S1 or higher] & & -5956.143$^{}$ \\
-  & & (7460.034) \\
- Q57[T.SD] & & 6745.220$^{}$ \\
-  & & (8008.309) \\
- Q57[T.SMA] & & -338.772$^{}$ \\
-  & & (5669.506) \\
- Q57[T.SMP] & & 1058.908$^{}$ \\
-  & & (6598.707) \\
- Q58[T.Yes] & & 5170.436$^{}$ \\
-  & & (8691.783) \\
+% Q54[T.30 - 39] & & 599.344$^{}$ \\
+%  & & (9829.024) \\
+% Q54[T.30 - 39]:Q58[T.Yes] & & -1459.150$^{}$ \\
+%  & & (10215.505) \\
+% Q54[T.40 - 49] & & -5300.705$^{}$ \\
+%  & & (13705.572) \\
+% Q54[T.40 - 49]:Q58[T.Yes] & & 2649.267$^{}$ \\
+%  & & (14135.068) \\
+% Q54[T.Above 50] & & -655.081$^{}$ \\
+%  & & (17545.153) \\
+% Q54[T.Above 50]:Q58[T.Yes] & & 3628.347$^{}$ \\
+%  & & (19003.614) \\
+% Q54[T.Under 20] & & -689.077$^{}$ \\
+%  & & (4819.356) \\
+% Q54[T.Under 20]:Q58[T.Yes] & & -689.077$^{}$ \\
+%  & & (4819.356) \\
+% Q55[T.Male] & & -5813.134$^{}$ \\
+%  & & (4617.561) \\
+% Q55[T.Prefer not to answer] & & -17966.204$^{}$ \\
+%  & & (19349.857) \\
+% Q57[T.None of the above] & & -0.000$^{}$ \\
+%  & & (0.000) \\
+% Q57[T.S1 or higher] & & -5956.143$^{}$ \\
+%  & & (7460.034) \\
+% Q57[T.SD] & & 6745.220$^{}$ \\
+%  & & (8008.309) \\
+% Q57[T.SMA] & & -338.772$^{}$ \\
+%  & & (5669.506) \\
+% Q57[T.SMP] & & 1058.908$^{}$ \\
+%  & & (6598.707) \\
+% Q58[T.Yes] & & 5170.436$^{}$ \\
+%  & & (8691.783) \\
  gojek[T.True] & -11001.520$^{***}$ & -10506.619$^{***}$ \\
   & (2366.886) & (2426.682) \\
 \hline \\[-1.8ex]
  Observations & 552 & 552 \\
  $R^2$ & 0.038 & 0.052 \\
  Adjusted $R^2$ & 0.036 & 0.025 \\
- Residual Std. Error & 26284.803(df = 550) & 26435.066(df = 536)  \\
- F Statistic & 21.605$^{***}$ (df = 1.0; 550.0) & 1.942$^{**}$ (df = 15.0; 536.0) \\
+% Residual Std. Error & 26284.803(df = 550) & 26435.066(df = 536)  \\
+% F Statistic & 21.605$^{***}$ (df = 1.0; 550.0) & 1.942$^{**}$ (df = 15.0; 536.0) \\
 \hline
 \hline \\[-1.8ex]
 \textit{Note:} & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
@@ -138,12 +136,9 @@ We estimate, among all single-homers, the correlation between working for GoJek 
 
 
 For the same group of drivers, we consider the difference of total working hours between ride-hailing platforms.
- The model results in Table \ref{tab:working_hours} show that GoJek drivers work significantly longer than drivers from other platforms, 1.0335 hours more per day.
- Both regression results imply that there existing a large switching cost between GoJek and other platforms (Grab and Shopee) in Jakarta ride-hailing market. 
+ The model results in Table \ref{tab:working_hours} show that GoJek drivers work significantly longer than drivers from other platforms, 0.866 hours more per day, when controlling for age, gender, school diploma, and previous experience as a taxi driver. 
  
- GoJek motorcycle drivers work longer hours but earn less compared to other drivers. We use Natural Language Processing tools to gain additional insights on what, besides earnings maximization, might drive the choices to work for Grab as compared to GoJek.
-
- 
+ Both regression results imply that drivers must optimize for other factors besides earnings. We investigate free-text answers to close this chapter.
  
  \begin{table}[!htbp] \centering
 \begin{tabular}{@{\extracolsep{5pt}}lcc}
@@ -151,50 +146,50 @@ For the same group of drivers, we consider the difference of total working hours
 \hline \\[-1.8ex]
 & \multicolumn{2}{c}{\textit{Dependent variable:}} \
 \cr \cline{2-3}
-\\[-1.8ex] & (1) & (2) \\
+\\[-1.8ex] & without controls & with controls \\
 \hline \\[-1.8ex]
  Intercept & 10.664$^{***}$ & 8.328$^{***}$ \\
   & (0.162) & (0.874) \\
- Q54[T.30 - 39] & & -0.761$^{}$ \\
-  & & (0.791) \\
- Q54[T.30 - 39]:Q58[T.Yes] & & 0.970$^{}$ \\
-  & & (0.829) \\
- Q54[T.40 - 49] & & -1.880$^{*}$ \\
-  & & (1.072) \\
- Q54[T.40 - 49]:Q58[T.Yes] & & 1.916$^{*}$ \\
-  & & (1.116) \\
- Q54[T.Above 50] & & -1.056$^{}$ \\
-  & & (1.440) \\
- Q54[T.Above 50]:Q58[T.Yes] & & 1.595$^{}$ \\
-  & & (1.572) \\
- Q54[T.Under 20] & & 1.204$^{}$ \\
-  & & (2.642) \\
- Q54[T.Under 20]:Q58[T.Yes] & & -2.903$^{}$ \\
-  & & (2.785) \\
- Q55[T.Male] & & 0.928$^{**}$ \\
-  & & (0.395) \\
- Q55[T.Prefer not to answer] & & 1.378$^{}$ \\
-  & & (1.523) \\
- Q57[T.None of the above] & & -0.000$^{}$ \\
-  & & (0.000) \\
- Q57[T.S1 or higher] & & -0.198$^{}$ \\
-  & & (0.603) \\
- Q57[T.SD] & & 0.073$^{}$ \\
-  & & (0.698) \\
- Q57[T.SMA] & & -0.032$^{}$ \\
-  & & (0.480) \\
- Q57[T.SMP] & & 0.063$^{}$ \\
-  & & (0.568) \\
- Q58[T.Yes] & & 1.749$^{**}$ \\
-  & & (0.689) \\
+% Q54[T.30 - 39] & & -0.761$^{}$ \\
+%  & & (0.791) \\
+% Q54[T.30 - 39]:Q58[T.Yes] & & 0.970$^{}$ \\
+%  & & (0.829) \\
+% Q54[T.40 - 49] & & -1.880$^{*}$ \\
+%  & & (1.072) \\
+% Q54[T.40 - 49]:Q58[T.Yes] & & 1.916$^{*}$ \\
+%  & & (1.116) \\
+% Q54[T.Above 50] & & -1.056$^{}$ \\
+%  & & (1.440) \\
+% Q54[T.Above 50]:Q58[T.Yes] & & 1.595$^{}$ \\
+%  & & (1.572) \\
+% Q54[T.Under 20] & & 1.204$^{}$ \\
+%  & & (2.642) \\
+% Q54[T.Under 20]:Q58[T.Yes] & & -2.903$^{}$ \\
+%  & & (2.785) \\
+% Q55[T.Male] & & 0.928$^{**}$ \\
+%  & & (0.395) \\
+% Q55[T.Prefer not to answer] & & 1.378$^{}$ \\
+%  & & (1.523) \\
+% Q57[T.None of the above] & & -0.000$^{}$ \\
+%  & & (0.000) \\
+% Q57[T.S1 or higher] & & -0.198$^{}$ \\
+%  & & (0.603) \\
+% Q57[T.SD] & & 0.073$^{}$ \\
+%  & & (0.698) \\
+% Q57[T.SMA] & & -0.032$^{}$ \\
+%  & & (0.480) \\
+% Q57[T.SMP] & & 0.063$^{}$ \\
+%  & & (0.568) \\
+% Q58[T.Yes] & & 1.749$^{**}$ \\
+%  & & (0.689) \\
  gojek[T.True] & 1.033$^{***}$ & 0.866$^{***}$ \\
   & (0.210) & (0.206) \\
 \hline \\[-1.8ex]
  Observations & 655 & 655 \\
  $R^2$ & 0.036 & 0.136 \\
  Adjusted $R^2$ & 0.034 & 0.114 \\
- Residual Std. Error & 2.648(df = 653) & 2.536(df = 638)  \\
- F Statistic & 24.120$^{***}$ (df = 1.0; 653.0) & 6.273$^{***}$ (df = 16.0; 638.0) \\
+% Residual Std. Error & 2.648(df = 653) & 2.536(df = 638)  \\
+% F Statistic & 24.120$^{***}$ (df = 1.0; 653.0) & 6.273$^{***}$ (df = 16.0; 638.0) \\
 \hline
 \hline \\[-1.8ex]
 \textit{Note:} & \multicolumn{2}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\
@@ -203,9 +198,11 @@ For the same group of drivers, we consider the difference of total working hours
 \end{table}
 
 \section{Free-Text}
- In this section, we use a fine-tuned language model . All of the analysis is use answers to question 16 (compare Appendix~\ref{appendix:survey}) \enquote{Anything else we should know about why you decided not to use multiple platforms?}.
+ In this section, we use a fine-tuned language model \cite{Devlin2019} to predict whether single-homing drivers drive for two of the bigger companies Grab and GoJek. We then use the global feature importance metric SHAP \cite{Lundberg2017} to determine topics that might motivate drivers working for a platform that guarantees them more earning vs. the other. 
+ 
+ All of the analysis is use answers to question 16 (compare Appendix~\ref{appendix:survey}) \enquote{Anything else we should know about why you decided not to use multiple platforms?}.
 
-We fine-tuned a natural language model BERT \cite{Devlin2019} trained on the Indonesian Wikipedia to predict the choice of platform worked for based on the answer to question 16. We list global feature importance in our training data set for the prediction of the platform in \autoref{tab:free-text}.
+We fine-tuned a natural language model BERT \cite{Devlin2019} trained on the Indonesian Wikipedia. The output of our model can be found in \autoref{app:kdd}
 
 The words most indicative of working for GoJek, the platform with lower reported earnigns, are
 
@@ -229,6 +226,6 @@ The words most indicative of working for GoJek, the platform with lower reported
 \section{Discussion}
 We find significant earnings and working hours differences between single-homing drivers. The majority of respondents works for a platform where they report longer working hours and less hourly wages.
 
-In our analysis of free-text answers, we find that drivers working for a lower-paying platform cite more frequently reasons for %TODO: Finish this.
+In our analysis of free-text answers, we find that drivers working for a lower-paying platform cite informational and cultural reasons for their choice. 
 
-This gives introductory evidence for features beyond matching and pricing, relating to the informational environment of drivers. The value of demand information, whose design we are going to study in \autoref{chap:infodesign} is part of our analysis the next chapter.
+The prevalence of information as a reason of drivers for the less-earning platform leads to the next chapter, which gives additional  The value of demand information, whose design we are going to study in \autoref{chap:infodesign} is part of our analysis the next chapter.
