@@ -202,27 +202,19 @@ For the same group of drivers, we consider the difference of total working hours
  
  All of the analysis is use answers to question 16 (compare Appendix~\ref{appendix:survey}) \enquote{Anything else we should know about why you decided not to use multiple platforms?}.
 
-We fine-tuned a natural language model BERT \cite{Devlin2019} trained on the Indonesian Wikipedia. The output of our model can be found in \autoref{app:kdd}
+We fine-tuned a natural language model BERT \cite{Devlin2019} trained on the Indonesian Wikipedia. We fine-tune the model, i.e. train the last layers of the neural network.
 
-The words most indicative of working for GoJek, the platform with lower reported earnigns, are
-
-\begin{table}
+Prominent predictors for  are fok (focus) and pekerjaan (profession), which hint to two areas of explanation: 
+\begin{enumerate}
+	\item GoJek Drivers might prefer their platform because of the cognitive load of learning another platform. This corresponds to \emph{focus} 
+	\item GoJek drivers view their work more as a regular employment than Grab drivers, and therefore, for example, do not multi-home.
+\end{enumerate}
+The former reason can be seen as a reason to neither multi-home nor switch. The latter reason can be seen as an anti-multi-homing reason. We leave further analysis for further work.
+\begin{figure}
 \centering
-\begin{tabular}{ccc}
-\toprule
-&&\\
-\midrule
-&&\\
-\bottomrule	
-\end{tabular}
-\caption{Sum of Feature Importance in SHAP scores}	
-\end{table}
-
-%gridwise: Using across platforms
-%vehicle requirements
-%bounced out
-%focus/confusion
-%indonesian incumbent
+\includegraphics[width=\linewidth]{shap.png}
+\caption{Sum of Feature Importance for Decision to label as GoJek (SHAP scores)}	
+\end{figure}
 \section{Discussion}
 We find significant earnings and working hours differences between single-homing drivers. The majority of respondents works for a platform where they report longer working hours and less hourly wages.
 
