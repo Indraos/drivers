@@ -1,41 +1,9 @@
 \chapter{Information Design}\label{chap:infodesign}
-\begin{quote}
-	The information design problem has a literal interpretation: there really is an information designer (or mediator, or sender) who can commit to provide extra information to players to serve her own interests. While the commitment assumption may be problematic in many settings, it provides a useful benchmark.\flushright{---\cite{Bergemann}}
-\end{quote}
-
-
-%- Analysis
-%
-%- Private Information
-%- Solution for Private Information Cheap Talk
-%Private Information is desired
-%- Solution for Private Information Info Design
-%Babbling
-%- Comparison
-%
-%- Public Information
-%- Solution for Public Info Cheap Talk
-%- Solution for Public Info Information Design
-%- Comparison
-%
-%- Remedies
-%
-%- Commitment
-%- Third Party Information Intermediaries
-%- Repeated Game
-%- Other sources of Commitment
-%
-%- Small group of targeted agents
-%- Result
-%- Third Party Interpretation
-%- High-Scoring Agents Information
-%
-%- Conclusions
-
+\epigraph{The information design problem has a literal interpretation: there really is an information designer (or mediator, or sender) who can commit to provide extra information to players to serve her own interests. While the commitment assumption may be problematic in many settings, it provides a useful benchmark.}{\cite{Bergemann}}
 
 In this section, we study \emph{pure} information design for platform drivers. We refer to it as \emph{pure} as we study information provision while keeping the driver payoffs fixed. We show several limitations for the platform: Drivers, in equilibrium, ignore information if it cannot commit to not giving a particular driver some part of the information, it gives
 \section{Model}
-We present here, in a self-contained manner, a model of information design with an \emph{omniscient} designer. Omniscience refers to the TNC, the information designer, having strictly more information than all drivers, the agents in our game. This assumption is not without loss, as existing challenges to improve Operations Research models, e.g., in last-mile logistics, compare \cite{Last2007}, show. Our results, qualitatively do not differ, as we show in appendix \autoref{chap:infodesignapp}.
+We present here, in a self-contained manner, a model of information design with an \emph{omniscient} designer. Omniscience refers to the TNC, the information designer, having strictly more information than all drivers, the agents in our game. This assumption is not without loss, as existing challenges to improve Operations Research models, e.g., in last-mile logistics, compare \cite{Last2007}, show. Our results, qualitatively do not differ. 
 
  We consider a finite set of agents $i = 1, 2, \dots, n$. There are states of the world $\Theta$. We consider a basic game given by, for each player $i$ an action set $A_i$ and a utility function
 \[
@@ -209,7 +177,7 @@ The platform would like to minimize the probability that the demand cannot be me
 \end{proof}
 
 
-\subsection{Cheap Talk}\label{subsec:infodesign}
+\subsection{Information Deisgn}\label{subsec:infodesign}
 We compare this to a model in which the platform cannot commit ot 
 In cheap talk, the platform discloses some information to a driver, which, given the update, updates their behavior. More concretely, there is an abstract set of \emph{messages} $m \in \mathcal M$ that the platform can send. The players receive the message and play optimally. In particular, the timeline of the game is:
 \begin{enumerate}
@@ -219,7 +187,7 @@ In cheap talk, the platform discloses some information to a driver, which, given
 	\end{enumerate}
 We solve for perfect Bayesian (signalling) equilibria of this game.
 
-\subsection{Public and Private}
+\subsection{Cheap Talk}
 We call a recommendation $\sigma$ public if $\sigma_1 (\theta)\stackrel{\text{a.s.}}{=} \sigma_2 (\theta)$ for $\theta = 0,1$,i.e. if both agents receive the same information. In this case, this leads to the following result:
 \begin{prop}
 The optimal information design when the platform is restricted to public messages is given in \autoref{tab:optpublic}	
@@ -250,7 +218,7 @@ not go & $p_1 - r_1$ & $1 + r_1 - 2p_1$\\
 \caption{Parameterized Information Design}\label{tab:paraminfodesign}	
 \end{table}
 
-\subsection{Results}\label{subsec:cheaptalk}
+\subsection{Private and Public Messages}\label{subsec:cheaptalk}
 \begin{thm}\label{thm:commitment}
 	In the cheap talk model, Perfect Bayesian equilibria have the following form:
 	\begin{enumerate}
@@ -265,24 +233,21 @@ In the other cases, the platform cannot transmit any information. The
 
 In this environment, hence, if the not internalized cost from 
 
-\section{Inefficiencies}
-After analysing the predictions, we identify two sources of inefficiencies: a potential lack of commitment (a comparison between our cheap talk and the commitment solution) and a potential lack of being able to provide asymmetric information.
-\subsection{Inefficiencies through lack of commitment}
-\begin{prop}\label{cor:commitmentlack}
-	The cheap talk version of the game has lower welfare. This statement is uniform: Both platform and driver surplus are lower in the cheap talk game.
-\end{prop}
-The statement shows that neither side benefits from limited commitment of the platform. The drivers have to rely on less information, and cannot trust the platform. The equilibrium is \enquote{babbling}. 
+\section{Main Result}
+\begin{thm}\label{cor:commitmentlack}
+	The optimal information design is given by
+	
 
-\subsection{Inefficiencies through public information}
-Comparing our second two theorems, we find the following loss from public information.
-\begin{cor}
-In the commitment regime, only allowing public information reduces platform and driver surplus. In the cheap talk regime, this restriction increases welfare
-\end{cor}
-This result might look somewhat surprising.
-\section{Discussion and Remedies}
+
+	The optimal cheap talk is given by
+	
+	
+	The driver surplus, as well as the platform surplus are, in equilibrium, increased
+\end{thm}
+\section{Remedies and Extensions}
 Given the inefficiencies observed in the last section, some remedies for the market should be considered. We introduce two potential solutions to the platform's commitment problem, and one solution to the allocation problem. 
 \subsection{Commitment via third parties}
-A main driver of the inefficiencies in our model was that there is a conflict of incentives between the platform and the drivers. In this environment, if drivers \enquote{pay} the platform, there is not much. 
+A main driver of the inefficiencies in our model was that there is a conflict of incentives between the platform and the drivers. In this environment, if drivers \enquote{pay} the platform, there is not much. To show this part, we amend 
 \subsection{Commitment via reputation}
 A second opportunity for the platform to commit is via reputation. This assumes that the game of information provision studied in this section is repeated sufficiently often. 
 \begin{thm}[\cite{Friedman1973}]

@@ -11,6 +11,7 @@
 \usepackage{csquotes}
 \usepackage{hyperref}
 \usepackage{xeCJK}
+\usepackage{epigraph}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
 \usepackage{subcaption}
@@ -21,6 +22,21 @@
 style=alphabetic,
 citestyle=authoryear
 ]{biblatex}
+\usepackage{newunicodechar}
+\newunicodechar{￥}{\textyen}
+\DeclareTextCommandDefault{\textyen}{%
+  \vphantom{Y}%
+  {\ooalign{Y\cr\hidewidth\yenbars\hidewidth\cr}}%
+}
+\newcommand{\yenbars}{%
+  \vbox{
+     \hrule height.1ex width.4em
+     \kern.15ex
+     \hrule height.1ex width.4em
+     \kern.3ex
+  }%
+}
+\setlength\epigraphwidth{.8\textwidth}
 \usetikzlibrary{positioning,calc,matrix}
 \newtheorem{thm}{Theorem}[chapter]
 \newtheorem{cor}[thm]{Theorem}

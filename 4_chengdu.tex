@@ -1,4 +1,5 @@
 \chapter{The Value of Information}\label{chap:chengdu}
+\epigraph{Compared to dispatching where the vehicle transitions are deter- mined by the origins and destinations ofthe outstanding orders, the repositioning operation is a proactive measure that has the freedom to make recommendations of any feasible destinations inside the city. On the flip side, it becomes a much complicated problem when the goal is to improve the average driver income of a large fleet for an extended period of time (e.g., more than 8 hours per day), which often requires some form of coordination among the vehicles to avoid causing undesirable competitions, e.g., crowding too many vehicles into a single high-demand location.}{\cite{Tang2021}}
 While the last chapter investigated stated aspects of relevance for labor supply, this section shows the \emph{potential} effects of platform design beyond matching and pricing in the case of information.
 
 We present evidence that demand information can significantly increase earnings for platform drivers. The earnings gains are aligned with claims by companies that offer information services to drivers such as Gridwise or Surge that additional information can increase earnings, compare \cite{Weed2019}. We first describe the data used in our estimation in \autoref{sec:chengdudata}. We then estimate driver earnings in optimized repositioning in \autoref{sec:chengduestimation} and close with comparing this with driver income under non-optimized behavior and discuss our results in \autoref{sec:chengdudiscussion}.
@@ -6,7 +7,7 @@ We present evidence that demand information can significantly increase earnings 
 The DiDi KDD Challenge 2020, sponsored by TNC DiDi, consisted of two challenges. An order dispatch challenge, that asked to match orders to drivers with the goal of maximizing the value of all orders completed, and a driver repositioning challenge that asked to reposition a small number of drivers to maximize the earnings rate of this group of drivers. We will work with data and submissions of the latter challenge.
 
 \subsection{Annotated Order Data}
-We use a dataset of 14,131,874 orders dispatched in Chengdu, China, in November 2016. An order consists of an origin-destination pair, a timestamp for beginning and end time, an identifier for the driver that took the order, and a number of \emph{reward units}. Reward units are a proxy for driver income provided by DiDi. As we argue statistically below, reward units are linear transformations of real currency. We recover an approximate translation of reward units into RMB, the local currency. As of the submission time of this thesis, the data is not available anymore, and the terms do not allow hosting of the data. Hence, we cannot provide replication for this part of our analysis.
+We use a dataset of 14,131,874 orders dispatched in Chengdu, China, in November 2016. An order consists of an origin-destination pair, a timestamp for beginning and end time, an identifier for the driver that took the order, and a number of \emph{reward units}. Reward units are a proxy for driver income provided by DiDi. As we argue statistically below, reward units are linear transformations of real currency. We recover an approximate translation of reward units into \textyen, the local currency. As of the submission time of this thesis, the data is not available anymore, and the terms do not allow hosting of the data. Hence, we cannot provide replication for this part of our analysis.
 
 \subsection{Evaluation in Paper}
 The KDD 2020 reinforcement learning challenge solves an optimal repositioning problem together with an optimal order dispatch problem. We make use of the repositioning scores in the paper \cite{Tang2021}, which solves two dynamic planning problems
@@ -56,7 +57,11 @@ We estimate the equation \eqref{eq:earnings},
 \[
 	e_t = b_t + l_t L + d_t D.
 \]
-for $t$ dependent on the different time periods in \autoref{tab:earningstable}, $t \in \{\text{22:00-07:00},\text{07:00-10:00},\text{10:00-16:00},\text{16:00-19:00},\text{19:00-22:00}\}$ as well as a simpler model 
+for $t$ dependent on the different time periods in \autoref{tab:earningstable}, 
+\[
+t \in \{\text{22:00-07:00},\text{07:00-10:00},\text{10:00-16:00},\text{16:00-19:00},\text{19:00-22:00}\}
+\]
+as well as a simpler model 
 \[
 	e = b + l L + d D
 \]
@@ -99,18 +104,17 @@ which disregards these periods. We use the Google Maps API to estimate driving d
 \end{table}
 The $F$-statistic of the smaller is much larger than the one of the larger model ($2911.7$ vs. $1074.8$), which means that all differences in hour-dependent pay are non-significant. As we do not have access to data from Changdu, we cannot determine whether this is a result of surge prices cancelling earnings variations or caused by the absence of price variations between hours. We will proceed by using the smaller model. 
 
-This allows us to estimate driver earnings for orders. By comparing the base price, per-kilometer and per-minute prices with our earnings, we get three estimates of RMB/reward unit: 11.4/0.751 = 15.2, 1.95/0.29 = 6.7, and 0.42/0.0065 = 6.5. We will, in our estimations, use the average of the latter two, 6.6, assuming that the base price for drivers in Chengdu has decreased since 2017. Note that this is a very conservative estimate given that the rate would be much higher when calibrating against the base rate.
+This allows us to estimate driver earnings for orders. By comparing the base price, per-kilometer and per-minute prices with our earnings, we get three estimates of \textyen/reward unit: 11.4/0.751 = 15.2, 1.95/0.29 = 6.7, and 0.42/0.0065 = 6.5. We will, in our estimations, use the average of the latter two, 6.6, assuming that the base price for drivers in Chengdu has decreased since 2017. Note that this is a very conservative estimate given that the rate would be much higher when calibrating against the base rate.
 
 We assume that the earnings rate as given in \eqref{eq:repositioningscore} are estimated per hour. Given the data available, we are not able to calibrate whether this is correct.
 
-Using our estimation, we can estimate the performance of the human expert policy as $8.5 \text{reward units}/\text{hour} \cdot 6.6 \frac{\text{RMB}}{\text{reward units}} = 56.1 \text{RMB}$. This lies in the band of first and second tier Chinese cities, for which average hourly income of 40-60 RMB are reported \cite{DayDayNews2019a}. The optimal repositioning gives earnings of $9 \text{reward units}/\text{hour} \cdot 6.6 \frac{\text{RMB}}{\text{reward units}} = 59.4 \text{RMB}$ which is on the upper end of the interval, which means a significant earnings increase of 3.3 RMB per hour.
+Using our estimation, we can estimate the performance of the human expert policy as $8.5 \text{reward units}/\text{hour} \cdot 6.6 \frac{\text{\textyen}}{\text{reward units}} = 56.1 \text{\textyen}$. This lies in the band of first and second tier Chinese cities, for which average hourly income of 40-60 \textyen are reported \cite{DayDayNews2019a}. The optimal repositioning gives earnings of $9 \text{reward units}/\text{hour} \cdot 6.6 \frac{\text{\textyen}}{\text{reward units}} = 59.4 \text{\textyen}$ which is on the upper end of the interval, which means a significant earnings increase of 3.3 \textyen per hour.
 
-As another check of our model fit and immediate use of our model, we infer the distribution of surge prices throughout the day. We use the estimated values \autoref{tab:rewardunits} to calculate a quantity of raw earnings $r_t = \overline{l} 0.290 L + \overline{d} 0.065D$. We then regress earnings
+As another check of our model fit and immediate use of our model, we infer the distribution of surge prices throughout the day. We use the estimated values \autoref{tab:rewardunits} to calculate a quantity of raw earnings $r_t = \overline{l}L + \overline{d}D =  0.290 L + 0.065D$. We then regress earnings
 \[
 e_t = \beta_t r_t
 \]
 and find the surge multipliers given in \autoref{fig:surge}, which emphasize the evening rush hour, but do not show as pronounced of a morning rush hour. 
-
 \begin{figure}
 \centering
 \input{surge}
